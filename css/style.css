@@ -112,18 +112,19 @@ h2 {
 /* Projects Grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajustado a 300px para coincidir con imagen */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
 
 .project-card {
+    width: 250px; /* Fixed width */
+    height: 300px; /* Fixed height */
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     overflow: hidden;
-    width: 300px; /* Fijo para coincidir con imagen */
 }
 
 .project-card:hover {
@@ -133,15 +134,15 @@ h2 {
 .project-image {
     position: relative;
     width: 100%;
-    height: 200px; /* Fijo para coincidir con imagen */
+    height: 100%;
 }
 
 .project-card img {
-    width: 300px; /* Tamaño fijo */
-    height: 200px; /* Tamaño fijo */
-    object-fit: cover; /* Cubre el área, recortando si necesario */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Image adapts to card size */
+    border-radius: 5px;
     display: block;
-    border-radius: 5px 5px 0 0;
 }
 
 .project-overlay {
@@ -150,7 +151,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -158,15 +159,17 @@ h2 {
     align-items: center;
     padding: 15px;
     text-align: center;
+    opacity: 1; /* Always visible */
+    transition: opacity 0.3s;
 }
 
 .project-overlay h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
 }
 
 .project-overlay p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-bottom: 10px;
 }
 
@@ -223,30 +226,16 @@ footer {
         font-size: 1.5rem;
     }
 
-    .project-grid {
-        grid-template-columns: 1fr; /* Una columna en móviles */
-    }
-
     .project-card {
-        width: 100%; /* Ocupa ancho completo */
-        max-width: 300px; /* Limita al tamaño de la imagen */
-        margin: 0 auto; /* Centra la tarjeta */
-    }
-
-    .project-card img {
-        width: 100%; /* Ajusta al ancho del contenedor */
-        height: 200px; /* Mantiene altura fija */
-    }
-
-    .project-image {
-        height: 200px;
+        width: 200px; /* Smaller fixed width for mobile */
+        height: 250px; /* Smaller fixed height for mobile */
     }
 
     .project-overlay h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .project-overlay p {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 }
