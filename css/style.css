@@ -119,46 +119,44 @@ h2 {
 
 .project-card {
     background: #fff;
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     /* Fixed size */
-    width: 300px; /* Fixed width */
-    height: 400px; /* Fixed height */
-    background-size: cover; /* Image fills the card */
-    background-position: center; /* Center the image */
-    position: relative; /* For absolute positioning of content */
-    overflow: hidden; /* Hide overflow */
+    width: 300px;
+    height: 450px; /* Increased to fit image and content */
+    display: flex;
+    flex-direction: column;
     margin: 0 auto; /* Center cards in grid */
+    overflow: hidden; /* Ensure content stays within bounds */
 }
 
 .project-card:hover {
     transform: translateY(-5px);
 }
 
-/* Small Button Variant */
-.btn.small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+/* Project Image */
+.project-image {
+    width: 100%;
+    height: 200px; /* Fixed height for image area */
+    overflow: hidden;
 }
 
-/* Project Content Overlay */
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Image adapts without cropping */
+    border-radius: 5px 5px 0 0; /* Round top corners */
+}
+
+/* Project Content */
 .project-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    color: #fff;
     padding: 15px;
+    flex-grow: 1; /* Take remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content */
     text-align: center;
-    transform: translateY(100%); /* Initially hidden below card */
-    transition: transform 0.3s ease; /* Smooth slide-up */
-}
-
-.project-card:hover .project-content {
-    transform: translateY(0); /* Slide up on hover */
 }
 
 .project-content h3 {
@@ -169,17 +167,24 @@ h2 {
 .project-content p {
     font-size: 0.95rem;
     margin-bottom: 10px;
+    flex-grow: 1; /* Ensure p takes available space */
 }
 
 .project-content a {
     margin-top: 10px;
 }
 
+/* Small Button Variant */
+.btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
 /* Footer */
 footer {
     background: #2c3e50;
     color: #fff;
-    text-align: center;
+    text-align: center-dot-comma text-align: center;
     padding: 20px 0;
 }
 
@@ -216,7 +221,11 @@ footer {
     }
 
     .project-card {
-        width: 250px; /* Slightly smaller for mobile */
-        height: 350px;
+        width: 250px;
+        height: 400px; /* Slightly smaller for mobile */
+    }
+
+    .project-image {
+        height: 180px; /* Adjust image height for mobile */
     }
 }
