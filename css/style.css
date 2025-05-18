@@ -119,9 +119,10 @@ h2 {
 
 .project-card {
     background: #fff;
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* For positioning overlay */
+    overflow: hidden; /* Ensure image and overlay stay within card */
     transition: transform 0.3s;
 }
 
@@ -129,12 +130,48 @@ h2 {
     transform: translateY(-5px);
 }
 
-/* Portfolio Images */
 .project-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    width: 100%;
+    height: 100%; /* Fill the card */
+    object-fit: cover; /* Maintain aspect ratio, cover card */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Behind overlay */
+}
+
+.project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    color: #fff;
+    padding: 15px;
+    z-index: 2; /* Above image */
+    opacity: 0.9; /* Slightly visible by default */
+    transition: opacity 0.3s;
+    text-align: left; /* Align text for better readability */
+}
+
+.project-card:hover .project-info {
+    opacity: 1; /* Fully visible on hover */
+}
+
+.project-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.project-info .btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    display: inline-block;
 }
 
 /* Small Button Variant */
@@ -181,5 +218,21 @@ footer {
 
     h2 {
         font-size: 1.5rem;
+    }
+
+    .project-card img {
+        height: 100%; /* Ensure image fills card on mobile */
+    }
+
+    .project-info {
+        padding: 10px; /* Slightly less padding on mobile */
+    }
+
+    .project-info h3 {
+        font-size: 1rem;
+    }
+
+    .project-info p {
+        font-size: 0.8rem;
     }
 }
