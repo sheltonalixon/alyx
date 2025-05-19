@@ -235,7 +235,7 @@ footer {
     }
 
     .project-card {
-        width: 627px; /* Smaller width for mobile */
+        width: 300px; /* Smaller width for mobile */
         height: 200px; /* Smaller height for mobile */
     }
 
