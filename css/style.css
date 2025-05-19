@@ -8,8 +8,8 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    position: relative; /* Para posicionar partículas detrás */
+    color: #fff; /* Cambiado a blanco para legibilidad */
+    position: relative;
 }
 
 /* Partículas de fondo */
@@ -19,13 +19,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Detrás de todo el contenido */
-    background: #1a1a1a; /* Fondo oscuro para contraste con partículas */
+    z-index: -1;
+    background: #1a1a1a; /* Fondo oscuro para partículas */
 }
 
 /* Header and Navigation */
 header {
-    background: rgba(44, 62, 80, 0.9); /* Semitransparente para ver partículas */
+    background: rgba(0, 0, 0, 0.9); /* Negro semitransparente */
     color: #fff;
     padding: 0.9rem 0;
     position: sticky;
@@ -86,13 +86,14 @@ section {
     max-width: 1284px;
     margin: 0 auto;
     text-align: center;
-    background: rgba(255, 255, 255, 0.9); /* Fondo claro semitransparente */
-    border-radius: 10px; /* Opcional, para suavizar bordes */
-    position: relative; /* Para asegurar visibilidad sobre partículas */
+    background: rgba(0, 0, 0, 0.9); /* Negro semitransparente */
+    border-radius: 10px;
+    position: relative;
+    color: #fff; /* Texto blanco para legibilidad */
 }
 
 #home {
-    background: rgba(244, 244, 244, 0.9); /* Fondo claro para home */
+    background: rgba(0, 0, 0, 0.9); /* Negro semitransparente */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -206,7 +207,7 @@ h2 {
 
 /* Footer */
 footer {
-    background: rgba(44, 62, 80, 0.9);
+    background: rgba(0, 0, 0, 0.9); /* Negro semitransparente */
     color: #fff;
     text-align: center;
     padding: 20px 0;
