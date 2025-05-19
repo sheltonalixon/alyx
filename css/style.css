@@ -113,13 +113,13 @@ h2 {
 .project-grid {
     display: flex;
     flex-wrap: nowrap;
-    gap: 20px;
+    gap: 30px; /* Increased for more separation */
     margin-top: 20px;
     justify-content: center; /* Center cards */
 }
 
 .project-card {
-    width: 580px; /* Close to 628px, fits two cards in 1200px */
+    width: 575px; /* Adjusted to fit with larger gap (575*2 + 30 = 1180px) */
     height: 250px; /* Fixed height as requested */
     background: #fff;
     border-radius: 5px;
@@ -166,12 +166,12 @@ h2 {
 }
 
 .project-overlay h3 {
-    font-size: 1.8rem; /* Suitable for 580px width */
+    font-size: 1.7rem; /* Slightly smaller for 575px width */
     margin-bottom: 10px;
 }
 
 .project-overlay p {
-    font-size: 1rem; /* Suitable for 580px width */
+    font-size: 0.95rem; /* Slightly smaller for 575px width */
     margin-bottom: 15px;
     max-width: 80%; /* Prevent text overflow */
 }
@@ -231,6 +231,7 @@ footer {
 
     .project-grid {
         flex-wrap: wrap; /* Allow cards to stack on mobile */
+        gap: 20px; /* Smaller gap for mobile */
     }
 
     .project-card {
