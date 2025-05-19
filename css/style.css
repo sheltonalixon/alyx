@@ -231,7 +231,7 @@ footer {
 
     .project-grid {
         flex-wrap: wrap; /* Allow cards to stack on mobile */
-        gap: 30px; /* Smaller gap for mobile */
+        gap: 20px; /* Smaller gap for mobile */
     }
 
     .project-card {
