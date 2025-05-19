@@ -112,20 +112,21 @@ h2 {
 /* Projects Grid */
 .project-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 20px;
     margin-top: 20px;
     justify-content: center; /* Center cards */
 }
 
 .project-card {
-    width: 300px; /* Reduced to fit two cards side by side */
+    width: 580px; /* Close to 628px, fits two cards in 1200px */
     height: 250px; /* Fixed height as requested */
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     overflow: hidden;
+    flex-shrink: 0; /* Prevent cards from shrinking */
 }
 
 .project-card:hover {
@@ -158,21 +159,21 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     opacity: 1; /* Always visible */
     transition: opacity 0.3s;
 }
 
 .project-overlay h3 {
-    font-size: 1.4rem; /* Adjusted for smaller card */
-    margin-bottom: 8px;
+    font-size: 1.8rem; /* Suitable for 580px width */
+    margin-bottom: 10px;
 }
 
 .project-overlay p {
-    font-size: 0.85rem; /* Adjusted for smaller card */
-    margin-bottom: 10px;
-    max-width: 90%; /* Prevent text overflow */
+    font-size: 1rem; /* Suitable for 580px width */
+    margin-bottom: 15px;
+    max-width: 80%; /* Prevent text overflow */
 }
 
 .project-overlay .btn.small {
@@ -228,17 +229,21 @@ footer {
         font-size: 1.5rem;
     }
 
+    .project-grid {
+        flex-wrap: wrap; /* Allow cards to stack on mobile */
+    }
+
     .project-card {
-        width: 280px; /* Slightly smaller for mobile */
+        width: 300px; /* Smaller width for mobile */
         height: 200px; /* Smaller height for mobile */
     }
 
     .project-overlay h3 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .project-overlay p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         max-width: 90%;
     }
 }
