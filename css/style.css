@@ -102,12 +102,18 @@ h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+    font-size: 1.5rem;
     color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
@@ -130,6 +136,30 @@ p {
     background: #2980b9;
 }
 
+/* Social Links (Comunidad) */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-links img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.social-links a:hover img {
+    transform: scale(1.2); /* Efecto de agrandamiento al pasar el ratón */
+}
+
 /* Projects Grid */
 .project-grid {
     display: flex;
@@ -142,7 +172,7 @@ p {
 .project-card {
     width: 627px;
     height: 250px;
-    background: transparent; /* Sin fondo para mostrar imagen nítida */
+    background: transparent; /* Sin fondo para imagen nítida */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
@@ -167,7 +197,7 @@ p {
     border-radius: 5px;
     display: block;
     opacity: 1; /* Imagen nítida */
-    filter: none; /* Sin filtros que opaquen */
+    filter: none;
 }
 
 .project-overlay {
@@ -184,8 +214,8 @@ p {
     align-items: center;
     padding: 20px;
     text-align: center;
-    opacity: 1; /* Texto siempre visible */
-    transition: background 0.3s ease; /* Transición suave para fondo */
+    opacity: 1;
+    transition: background 0.3s ease;
 }
 
 .project-card:hover .project-overlay {
@@ -195,7 +225,7 @@ p {
 .project-overlay h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .project-overlay p {
@@ -229,6 +259,24 @@ footer {
     position: relative;
 }
 
+footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #2980b9;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
@@ -259,6 +307,19 @@ footer {
 
     h2 {
         font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .social-links {
+        gap: 1.5rem;
+    }
+
+    .social-links img {
+        width: 40px;
+        height: 40px;
     }
 
     .project-grid {
