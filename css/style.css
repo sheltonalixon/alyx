@@ -35,7 +35,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1284px; /* Para las tarjetas de 627px */
+    max-width: 1284px; /* Para-elle: Para las tarjetas de 627px */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -219,14 +219,61 @@ p {
     font-size: 0.9rem;
 }
 
+/* Comunidad Section */
+#comunidad {
+    padding: 60px 20px;
+    max-width: 1284px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
 /* Footer */
 footer {
-    background: rgba(44, 62, 80, 0.85); /* Fondo semi-transparente */
+    background: rgba(44, 62, 80, 0.85);
     backdrop-filter: blur(5px);
     color: #fff;
     text-align: center;
     padding: 20px 0;
     position: relative;
+}
+
+footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #2980b9;
 }
 
 /* Responsive Design */
