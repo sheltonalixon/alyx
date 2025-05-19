@@ -119,7 +119,7 @@ h2 {
 }
 
 .project-card {
-    width: 627px; /* Close to 628, 580px, fits with 40px gap in 1200px */
+    width: 627px; /* Close to 628px, fits with 30px gap in 1200px */
     height: 250px; /* Fixed height */
     background: #fff;
     border-radius: 5px;
