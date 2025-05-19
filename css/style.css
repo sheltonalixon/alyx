@@ -8,7 +8,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #fff; /* Texto blanco para legibilidad sobre fondo oscuro */
+    color: #fff; /* Texto blanco para legibilidad */
 }
 
 /* Particles.js */
@@ -85,7 +85,7 @@ section {
     max-width: 1284px; /* Para las tarjetas de 627px */
     margin: 0 auto;
     text-align: center;
-    position: relative; /* Asegura que el contenido esté sobre las partículas */
+    position: relative; /* Sobre las partículas */
     /* Sin fondo para mostrar partículas */
 }
 
@@ -101,14 +101,14 @@ section {
 h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #fff; /* Texto blanco */
+    color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #fff; /* Texto blanco */
+    color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -142,7 +142,7 @@ p {
 .project-card {
     width: 627px;
     height: 250px;
-    /*background: rgba(255, 255, 255, 0.9); /* Fondo claro para tarjetas */
+    background: transparent; /* Sin fondo para mostrar imagen nítida */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
@@ -166,6 +166,8 @@ p {
     object-fit: cover;
     border-radius: 5px;
     display: block;
+    opacity: 1; /* Imagen nítida */
+    filter: none; /* Sin filtros que opaquen */
 }
 
 .project-overlay {
@@ -174,7 +176,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro para legibilidad */
+    background: transparent; /* Transparente por defecto */
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -182,20 +184,26 @@ p {
     align-items: center;
     padding: 20px;
     text-align: center;
-    opacity: 1;
-    transition: opacity 0.3s;
+    opacity: 1; /* Texto siempre visible */
+    transition: background 0.3s ease; /* Transición suave para fondo */
+}
+
+.project-card:hover .project-overlay {
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-opaco al pasar el ratón */
 }
 
 .project-overlay h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
 }
 
 .project-overlay p {
     font-size: 1rem;
     margin-bottom: 15px;
     max-width: 80%;
-    color: #fff; /* Asegurar texto blanco */
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .project-overlay .btn.small {
@@ -264,7 +272,7 @@ footer {
     }
 
     .project-overlay h3 {
- SENTENCE:     font-size: 1.4rem;
+        font-size: 1.4rem;
     }
 
     .project-overlay p {
