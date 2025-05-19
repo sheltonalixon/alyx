@@ -219,25 +219,6 @@ p {
     font-size: 0.9rem;
 }
 
-/* Social Links */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.social-links img {
-    width: 50px;
-    height: 50px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.social-links img:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 10px rgba(0, 221, 235, 0.7)); /* Efecto de resplandor */
-}
-
 /* Footer */
 footer {
     background: rgba(44, 62, 80, 0.85); /* Fondo semi-transparente */
@@ -246,19 +227,6 @@ footer {
     text-align: center;
     padding: 20px 0;
     position: relative;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-footer a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #2980b9;
 }
 
 /* Responsive Design */
@@ -310,10 +278,5 @@ footer a:hover {
     .project-overlay p {
         font-size: 0.9rem;
         max-width: 90%;
-    }
-
-    .social-links img {
-        width: 40px;
-        height: 40px;
     }
 }
