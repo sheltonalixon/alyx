@@ -102,18 +102,12 @@ h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-h3 {
-    font-size: 1.5rem;
     color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
@@ -136,30 +130,6 @@ p {
     background: #2980b9;
 }
 
-/* Social Links (Comunidad) */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.social-links a {
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.social-links img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-}
-
-.social-links a:hover img {
-    transform: scale(1.2); /* Efecto de agrandamiento al pasar el ratón */
-}
-
 /* Projects Grid */
 .project-grid {
     display: flex;
@@ -172,7 +142,7 @@ p {
 .project-card {
     width: 627px;
     height: 250px;
-    background: transparent; /* Sin fondo para imagen nítida */
+    background: transparent; /* Sin fondo para mostrar imagen nítida */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
@@ -197,7 +167,7 @@ p {
     border-radius: 5px;
     display: block;
     opacity: 1; /* Imagen nítida */
-    filter: none;
+    filter: none; /* Sin filtros que opaquen */
 }
 
 .project-overlay {
@@ -214,8 +184,8 @@ p {
     align-items: center;
     padding: 20px;
     text-align: center;
-    opacity: 1;
-    transition: background 0.3s ease;
+    opacity: 1; /* Texto siempre visible */
+    transition: background 0.3s ease; /* Transición suave para fondo */
 }
 
 .project-card:hover .project-overlay {
@@ -225,7 +195,7 @@ p {
 .project-overlay h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
 }
 
 .project-overlay p {
@@ -249,6 +219,25 @@ p {
     font-size: 0.9rem;
 }
 
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-links img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(0, 221, 235, 0.7)); /* Efecto de resplandor */
+}
+
 /* Footer */
 footer {
     background: rgba(44, 62, 80, 0.85); /* Fondo semi-transparente */
@@ -259,13 +248,8 @@ footer {
     position: relative;
 }
 
-footer h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
 footer p {
-    font-size: 1rem;
+    margin: 5px 0;
 }
 
 footer a {
@@ -309,19 +293,6 @@ footer a:hover {
         font-size: 1.5rem;
     }
 
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    .social-links {
-        gap: 1.5rem;
-    }
-
-    .social-links img {
-        width: 40px;
-        height: 40px;
-    }
-
     .project-grid {
         flex-wrap: wrap;
         gap: 20px;
@@ -339,5 +310,10 @@ footer a:hover {
     .project-overlay p {
         font-size: 0.9rem;
         max-width: 90%;
+    }
+
+    .social-links img {
+        width: 40px;
+        height: 40px;
     }
 }
