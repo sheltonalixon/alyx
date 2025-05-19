@@ -166,12 +166,12 @@ h2 {
 }
 
 .project-overlay h3 {
-    font-size: 1.8rem; /* Suitable for 580px width */
+    font-size: 1.8rem; /* Suitable for 627px width */
     margin-bottom: 10px;
 }
 
 .project-overlay p {
-    font-size: 1rem; /* Suitable for 580px width */
+    font-size: 1rem; /* Suitable for 627px width */
     margin-bottom: 15px;
     max-width: 80%; /* Prevent text overflow */
 }
