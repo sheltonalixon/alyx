@@ -9,11 +9,23 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    position: relative; /* Para posicionar partículas detrás */
+}
+
+/* Partículas de fondo */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás de todo el contenido */
+    background: #1a1a1a; /* Fondo oscuro para contraste con partículas */
 }
 
 /* Header and Navigation */
 header {
-    background: #0a0a0a;
+    background: rgba(44, 62, 80, 0.9); /* Semitransparente para ver partículas */
     color: #fff;
     padding: 0.9rem 0;
     position: sticky;
@@ -25,7 +37,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1284px; /* Aumentado para las tarjetas */
+    max-width: 1284px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -71,13 +83,16 @@ nav {
 /* Main Sections */
 section {
     padding: 60px 20px;
-    max-width: 1284px; /* Aumentado para las tarjetas */
+    max-width: 1284px;
     margin: 0 auto;
     text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Fondo claro semitransparente */
+    border-radius: 10px; /* Opcional, para suavizar bordes */
+    position: relative; /* Para asegurar visibilidad sobre partículas */
 }
 
 #home {
-    background: #f4f4f4;
+    background: rgba(244, 244, 244, 0.9); /* Fondo claro para home */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -113,20 +128,20 @@ h2 {
 .project-grid {
     display: flex;
     flex-wrap: nowrap;
-    gap: 30px; /* Mantenido para separación */
+    gap: 30px;
     margin-top: 20px;
-    justify-content: center; /* Centrar tarjetas */
+    justify-content: center;
 }
 
 .project-card {
-    width: 627px; /* Tu tamaño deseado */
-    height: 250px; /* Tu tamaño deseado */
+    width: 627px;
+    height: 250px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     overflow: hidden;
-    flex-shrink: 0; /* Evitar que las tarjetas se encojan */
+    flex-shrink: 0;
 }
 
 .project-card:hover {
@@ -142,7 +157,7 @@ h2 {
 .project-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Imagen se adapta al tamaño */
+    object-fit: cover;
     border-radius: 5px;
     display: block;
 }
@@ -153,7 +168,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -161,19 +176,19 @@ h2 {
     align-items: center;
     padding: 20px;
     text-align: center;
-    opacity: 1; /* Siempre visible */
+    opacity: 1;
     transition: opacity 0.3s;
 }
 
 .project-overlay h3 {
-    font-size: 1.8rem; /* Mantenido para 627px */
+    font-size: 1.8rem;
     margin-bottom: 10px;
 }
 
 .project-overlay p {
-    font-size: 1rem; /* Mantenido para 627px */
+    font-size: 1rem;
     margin-bottom: 15px;
-    max-width: 80%; /* Evitar desbordamiento de texto */
+    max-width: 80%;
 }
 
 .project-overlay .btn.small {
@@ -191,10 +206,11 @@ h2 {
 
 /* Footer */
 footer {
-    background: #2c3e50;
+    background: rgba(44, 62, 80, 0.9);
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    position: relative;
 }
 
 /* Responsive Design */
@@ -230,13 +246,13 @@ footer {
     }
 
     .project-grid {
-        flex-wrap: wrap; /* Apilar tarjetas en móviles */
-        gap: 20px; /* Menor separación en móviles */
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
     .project-card {
-        width: 300px; /* Tamaño para móviles */
-        height: 200px; /* Tamaño para móviles */
+        width: 300px;
+        height: 200px;
     }
 
     .project-overlay h3 {
