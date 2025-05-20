@@ -9,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #fff; /* Texto blanco para legibilidad */
+    margin: 0; /* Asegurar que no haya márgenes en el body */
 }
 
 /* Particles.js */
@@ -82,19 +83,17 @@ nav {
 /* Carousel */
 #home {
     min-height: 100vh;
-    margin: 0; /* Eliminar márgenes */
-    padding: 0; /* Eliminar padding */
     position: relative;
     overflow: hidden;
-    top: 0; /* Asegurar que esté en el borde superior */
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar padding */
 }
 
 .carousel {
-    width: 100vw; /* Ancho completo de la ventana */
-    height: 100vh; /* Alto completo de la ventana */
+    width: 100vw; /* Usar 100vw para ocupar todo el ancho */
+    height: 100vh; /* Ocupar todo el alto */
     position: relative;
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Asegurar que no haya márgenes */
 }
 
 .carousel-slide {
@@ -119,8 +118,7 @@ nav {
     top: 0;
     left: 0;
     z-index: 1;
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Eliminar márgenes */
 }
 
 .carousel-content {
@@ -130,13 +128,12 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
     height: 100%;
     background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header, footer y botones */
     backdrop-filter: blur(5px); /* Efecto de desenfoque */
     padding: 20px;
     text-align: center;
-    margin: 0;
+    width: 100%; /* Asegurar que ocupe todo el ancho */
 }
 
 .carousel-content h1 {
@@ -352,11 +349,6 @@ footer {
 
     h2 {
         font-size: 1.5rem;
-    }
-
-    .carousel {
-        width: 100vw;
-        height: 100vh;
     }
 
     .carousel-content h1 {
