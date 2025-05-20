@@ -130,27 +130,6 @@ p {
     background: #2980b9;
 }
 
-/* Social Links for Community Section */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-.social-links a {
-    display: inline-block;
-    transition: transform 0.3s ease, color 0.3s ease;
-    color: #fff; /* Color blanco para íconos */
-    font-size: 50px; /* Tamaño de íconos */
-    line-height: 50px; /* Alinear verticalmente */
-}
-
-.social-links a:hover {
-    transform: scale(1.2); /* Efecto hover */
-    color: #3498db; /* Color azul al pasar el ratón */
-}
-
 /* Projects Grid */
 .project-grid {
     display: flex;
@@ -163,7 +142,7 @@ p {
 .project-card {
     width: 627px;
     height: 250px;
-    background: transparent; /* Sin fondo para imagen nítida */
+    background: transparent; /* Sin fondo para mostrar imagen nítida */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
@@ -188,7 +167,7 @@ p {
     border-radius: 5px;
     display: block;
     opacity: 1; /* Imagen nítida */
-    filter: none; /* Sin filtros */
+    filter: none; /* Sin filtros que opaquen */
 }
 
 .project-overlay {
@@ -205,18 +184,18 @@ p {
     align-items: center;
     padding: 20px;
     text-align: center;
-    opacity: 1;
-    transition: background 0.3s ease;
+    opacity: 1; /* Texto siempre visible */
+    transition: background 0.3s ease; /* Transición suave para fondo */
 }
 
 .project-card:hover .project-overlay {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semi-opaco en hover */
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-opaco al pasar el ratón */
 }
 
 .project-overlay h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
 }
 
 .project-overlay p {
@@ -248,19 +227,6 @@ footer {
     text-align: center;
     padding: 20px 0;
     position: relative;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-footer a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #2980b9;
 }
 
 /* Responsive Design */
@@ -312,14 +278,5 @@ footer a:hover {
     .project-overlay p {
         font-size: 0.9rem;
         max-width: 90%;
-    }
-
-    .social-links {
-        gap: 1rem;
-    }
-
-    .social-links a {
-        font-size: 40px; /* Íconos más pequeños en móvil */
-        line-height: 40px;
     }
 }
