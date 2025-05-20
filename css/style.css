@@ -119,15 +119,18 @@ p {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background: #3498db;
-    color: #fff;
+    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header y footer */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    color: #fff; /* Texto blanco */
     text-decoration: none;
     border-radius: 5px;
     margin-top: 1rem;
+    transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
 }
 
 .btn:hover {
-    background: #2980b9;
+    background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
+    color: #3498db; /* Texto azul claro en hover */
 }
 
 /* Projects Grid */
@@ -212,8 +215,15 @@ p {
 .project-overlay .btn.small {
     padding: 8px 16px;
     font-size: 0.9rem;
-    background: #3498db;
-    color: #fff;
+    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header y footer */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    color: #fff; /* Texto blanco */
+    transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
+}
+
+.project-overlay .btn.small:hover {
+    background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
+    color: #3498db; /* Texto azul claro en hover */
 }
 
 /* Small Button Variant */
