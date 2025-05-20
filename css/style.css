@@ -84,23 +84,26 @@ nav {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    padding: 0; /* Sin padding para el carrusel */
+    max-width: 100vw; /* Abarca todo el ancho de la pantalla */
+    width: 100vw; /* Asegura que ocupe el ancho completo */
 }
 
 .carousel {
     position: relative;
-    width: 100%;
+    width: 100vw; /* Abarca todo el ancho de la pantalla */
     height: 100vh;
 }
 
 .carousel-slides {
     display: flex;
-    width: 100%;
+    width: 100vw; /* Abarca todo el ancho */
     height: 100%;
     transition: transform 0.5s ease;
 }
 
 .carousel-slide {
-    flex: 0 0 100%;
+    flex: 0 0 100vw; /* Cada diapositiva ocupa el ancho completo */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -126,7 +129,8 @@ nav {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 80%;
+    max-width: 1284px; /* Limita el ancho del contenido para legibilidad */
+    width: 90%; /* Margen en pantallas grandes */
 }
 
 .carousel-slide h1 {
@@ -165,11 +169,11 @@ nav {
 }
 
 .carousel-prev {
-    left: 20px;
+    left: 20px; /* Pegado al borde izquierdo */
 }
 
 .carousel-next {
-    right: 20px;
+    right: 20px; /* Pegado al borde derecho */
 }
 
 .carousel-dots {
@@ -205,10 +209,6 @@ section {
     text-align: center;
     position: relative; /* Sobre las partículas */
     /* Sin fondo para mostrar partículas */
-}
-
-#home {
-    padding: 0; /* Sin padding para el carrusel */
 }
 
 h1 {
@@ -448,5 +448,9 @@ footer {
 
     .social-icon {
         font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
+    }
+
+    .slide-content {
+        width: 95%; /* Más ancho en móviles para aprovechar el espacio */
     }
 }
