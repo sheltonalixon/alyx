@@ -219,6 +219,26 @@ p {
     font-size: 0.9rem;
 }
 
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 2rem; /* Tamaño de los iconos */
+    color: #fff; /* Color blanco para los iconos */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #3498db; /* Color azul al pasar el ratón */
+    transform: scale(1.2); /* Efecto de aumento al pasar el ratón */
+}
+
 /* Footer */
 footer {
     background: rgba(44, 62, 80, 0.85); /* Fondo semi-transparente */
@@ -227,14 +247,6 @@ footer {
     text-align: center;
     padding: 20px 0;
     position: relative;
-}
-
-/* Social Links */
-.social-links {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
 }
 
 /* Responsive Design */
@@ -255,10 +267,6 @@ footer {
 
     .nav-menu li {
         margin: 10px 0;
-    }
-
-    .nav-toggle {
-        display: flex;
     }
 
     h1 {
@@ -286,5 +294,9 @@ footer {
     .project-overlay p {
         font-size: 0.9rem;
         max-width: 90%;
+    }
+
+    .social-icon {
+        font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
     }
 }
