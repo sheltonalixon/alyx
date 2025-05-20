@@ -102,6 +102,10 @@ nav {
     transition: transform 0.5s ease;
 }
 
+.carousel-slides.no-transition {
+    transition: none; /* Desactiva la transición para reinicio */
+}
+
 .carousel-slide {
     flex: 0 0 100vw; /* Cada diapositiva ocupa el ancho completo */
     min-height: 100vh;
