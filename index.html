@@ -8,7 +8,7 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Google Fonts: Orbitron -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="particles-js"></div>
@@ -32,53 +32,68 @@
     <main>
         <section id="home">
             <div class="carousel">
-                <div class="carousel-slide active">
-                    <img src="linda3.jpeg" alt="Slide 1">
-                    <div class="carousel-content">
-                        <h1>Bienvenidos a Alyx</h1>
-                        <p>Tu sitio web de portafolio moderno.</p>
-                        <a href="#about" class="btn">Saber más</a>
+                <!-- Diapositivas -->
+                <div class="carousel-slides">
+                    <!-- Diapositiva 1: Contenido actual -->
+                    <div class="carousel-slide active">
+                        <div class="slide-content">
+                            <h1>Bienvenidos a Alyx</h1>
+                            <p>Tu sitio web de portafolio moderno.</p>
+                            <a href="#about" class="btn">Saber más</a>
+                        </div>
+                    </div>
+                    <!-- Diapositiva 2 -->
+                    <div class="carousel-slide" style="background-image: url('images/slide1.jpg');">
+                        <div class="slide-content">
+                            <h1>Proyecto Innovador</h1>
+                            <p>Descubre nuestro último proyecto tecnológico.</p>
+                            <a href="#portfolio" class="btn">Ver más</a>
+                        </div>
+                    </div>
+                    <!-- Diapositiva 3 -->
+                    <div class="carousel-slide" style="background-image: url('images/slide2.jpg');">
+                        <div class="slide-content">
+                            <h1>Comunidad Activa</h1>
+                            <p>Únete a nuestra comunidad en Discord.</p>
+                            <a href="#community" class="btn">Unirse ahora</a>
+                        </div>
+                    </div>
+                    <!-- Diapositiva 4 -->
+                    <div class="carousel-slide" style="background-image: url('images/slide3.jpg');">
+                        <div class="slide-content">
+                            <h1>Tutoriales Exclusivos</h1>
+                            <p>Aprende desarrollo web con nuestros videos.</p>
+                            <a href="https://youtube.com/@tu-canal" class="btn">Ver canal</a>
+                        </div>
+                    </div>
+                    <!-- Diapositiva 5 -->
+                    <div class="carousel-slide" style="background-image: url('images/slide4.jpg');">
+                        <div class="slide-content">
+                            <h1>Stream en Vivo</h1>
+                            <p>Sígueme en Twitch para sesiones en directo.</p>
+                            <a href="https://twitch.tv/tu-canal" class="btn">Ver streams</a>
+                        </div>
+                    </div>
+                    <!-- Diapositiva 6 -->
+                    <div class="carousel-slide" style="background-image: url('images/slide5.jpg');">
+                        <div class="slide-content">
+                            <h1>Explora Nuevas Ideas</h1>
+                            <p>Conecta y comparte en nuestras redes.</p>
+                            <a href="#community" class="btn">Conectar</a>
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-slide">
-                    <img src="linda3.jpeg" alt="Slide 2">
-                    <div class="carousel-content">
-                        <h1>Proyecto Innovador</h1>
-                        <p>Explora nuestras soluciones tecnológicas de vanguardia.</p>
-                        <a href="#portfolio" class="btn">Ver más</a>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="linda3.jpeg" alt="Slide 3">
-                    <div class="carousel-content">
-                        <h1>Conecta con la Comunidad</h1>
-                        <p>Únete a nuestra comunidad para compartir ideas y proyectos.</p>
-                        <a href="#community" class="btn">Únete ahora</a>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="linda3.jpeg" alt="Slide 4">
-                    <div class="carousel-content">
-                        <h1>Desarrollo Creativo</h1>
-                        <p>Creamos experiencias web únicas y personalizadas.</p>
-                        <a href="#portfolio" class="btn">Descubre más</a>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="linda3.jpeg" alt="Slide 5">
-                    <div class="carousel-content">
-                        <h1>Tecnología Moderna</h1>
-                        <p>Utilizamos las últimas herramientas para tus proyectos.</p>
-                        <a href="#portfolio" class="btn">Ver proyectos</a>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="linda3.jpeg" alt="Slide 6">
-                    <div class="carousel-content">
-                        <h1>Únete al Futuro</h1>
-                        <p>Construyamos juntos el futuro de la web.</p>
-                        <a href="#contact" class="btn">Contáctame</a>
-                    </div>
+                <!-- Controles de navegación -->
+                <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                <!-- Puntos indicadores -->
+                <div class="carousel-dots">
+                    <span class="carousel-dot active"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
                 </div>
             </div>
         </section>
