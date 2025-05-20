@@ -181,9 +181,9 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinear elementos a la izquierda */
     padding: 20px;
-    text-align: center;
+    text-align: left; /* Alinear texto a la izquierda */
     opacity: 1; /* Texto siempre visible */
     transition: background 0.3s ease; /* Transición suave para fondo */
 }
@@ -197,6 +197,7 @@ p {
     font-size: 1.8rem;
     margin-bottom: 10px;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    text-align: left; /* Asegurar que el título esté alineado a la izquierda */
 }
 
 .project-overlay p {
@@ -205,6 +206,7 @@ p {
     max-width: 80%;
     color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-align: left; /* Alinear descripción a la izquierda */
 }
 
 .project-overlay .btn.small {
@@ -288,14 +290,21 @@ footer {
         height: 200px;
     }
 
+    .project-overlay {
+        align-items: flex-start; /* Mantener alineación izquierda en móviles */
+        text-align: left; /* Mantener texto alineado a la izquierda */
+    }
+
     .project-overlay h3 {
         font-family: 'Orbitron', sans-serif; /* Mantener Orbitron en móviles */
         font-size: 1.4rem;
+        text-align: left; /* Asegurar alineación izquierda */
     }
 
     .project-overlay p {
         font-size: 0.9rem;
         max-width: 90%;
+        text-align: left; /* Alinear descripción a la izquierda */
     }
 
     .social-icon {
