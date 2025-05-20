@@ -37,98 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Carousel
-    const slidesContainer = document.querySelector('.carousel-slides');
     const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
-    const prevBtn = document.querySelector('.carousel-prev');
-    const nextBtn = document.querySelector('.carousel-next');
-    const totalSlides = slides.length; // 6 slides
-    let currentSlide = 1; // Start on the real first slide (after cloned last slide)
+    let currentSlide = 0;
 
-    // Clone first and last slides for infinite loop
-    const firstSlideClone = slides[0].cloneNode(true);
-    const lastSlideClone = slides[totalSlides - 1].cloneNode(true);
-    slidesContainer.prepend(lastSlideClone);
-    slidesContainer.append(firstSlideClone);
-
-    // Update slides collection to include clones
-    const allSlides = document.querySelectorAll('.carousel-slide');
-    const totalAllSlides = allSlides.length; // 8 slides (6 real + 2 clones)
-
-    // Set initial position (start on real slide 1)
-    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-    function showSlide(index, animate = true) {
-        // Adjust index for clones
-        if (index > totalSlides) {
-            // Moving from last real slide to first real slide
-            currentSlide = 1;
-            slidesContainer.classList.add('no-transition');
-            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-            // Force reflow to apply no-transition instantly
-            slidesContainer.offsetHeight;
-            slidesContainer.classList.remove('no-transition');
-        } else if (index < 1) {
-            // Moving from first real slide to last real slide
-            currentSlide = totalSlides;
-            slidesContainer.classList.add('no-transition');
-            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-            slidesContainer.offsetHeight;
-            slidesContainer.classList.remove('no-transition');
-        } else {
-            currentSlide = index;
-        }
-
-        // Apply transition
-        if (animate) {
-            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        // Update dots
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentSlide - 1].classList.add('active');
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
     }
 
-    // Auto-slide every 5 seconds
-    let autoSlide = setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
 
-    // Next button
-    nextBtn.addEventListener('click', () => {
-        clearInterval(autoSlide);
-        showSlide(currentSlide + 1);
-        autoSlide = setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-    });
+    // Mostrar la primera diapositiva
+    showSlide(currentSlide);
 
-    // Previous button
-    prevBtn.addEventListener('click', () => {
-        clearInterval(autoSlide);
-        showSlide(currentSlide - 1);
-        autoSlide = setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-    });
-
-    // Dots navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            clearInterval(autoSlide);
-            showSlide(index + 1);
-            autoSlide = setInterval(() => {
-                showSlide(currentSlide + 1);
-            }, 5000);
-        });
-    });
-
-    // Handle transition end to ensure seamless loop
-    slidesContainer.addEventListener('transitionend', () => {
-        if (currentSlide === 0) {
-            showSlide(totalSlides, false);
-        } else if (currentSlide === totalSlides + 1) {
-            showSlide(1, false);
-        }
-    });
+    // Cambiar diapositiva cada 5 segundos
+    setInterval(nextSlide, 5000);
 });
