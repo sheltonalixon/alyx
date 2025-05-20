@@ -41,59 +41,85 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = document.querySelectorAll('.carousel-dot');
     const prevBtn = document.querySelector('.carousel-prev');
     const nextBtn = document.querySelector('.carousel-next');
+    const slidesContainer = document.querySelector('.carousel-slides');
     let currentSlide = 0;
     const totalSlides = slides.length;
 
-    function showSlide(index) {
-        // Asegurar que el índice esté dentro de los límites
+    function showSlide(index, animate = true) {
+        // Normalizar el índice para el bucle infinito
         if (index >= totalSlides) {
-            currentSlide = 0;
+            index = 0;
         } else if (index < 0) {
-            currentSlide = totalSlides - 1;
-        } else {
-            currentSlide = index;
+            index = totalSlides - 1;
         }
 
-        // Mover el carrusel
-        const offset = -currentSlide * 100;
-        document.querySelector('.carousel-slides').style.transform = `translateX(${offset}%)`;
+        // Actualizar la diapositiva actual
+        currentSlide = index;
+
+        // Aplicar la transformación
+        if (animate) {
+            slidesContainer.classList.remove('no-transition');
+            slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
+        } else {
+            // Desactivar transición para reinicio instantáneo
+            slidesContainer.classList.add('no-transition');
+            slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
+            // Forzar reflujo para que el cambio sea instantáneo
+            slidesContainer.offsetHeight;
+            slidesContainer.classList.remove('no-transition');
+        }
 
         // Actualizar puntos activos
         dots.forEach(dot => dot.classList.remove('active'));
         dots[currentSlide].classList.add('active');
     }
 
+    // Manejar el cambio automático
+    function nextSlide() {
+        if (currentSlide === totalSlides - 1) {
+            // Desde la última diapositiva, saltar a la primera sin animación
+            showSlide(0, false);
+            // Inmediatamente iniciar la transición a la primera diapositiva
+            setTimeout(() => {
+                showSlide(0, true);
+            }, 0);
+        } else {
+            showSlide(currentSlide + 1, true);
+        }
+    }
+
     // Cambio automático cada 5 segundos
-    let autoSlide = setInterval(() => {
-        showSlide(currentSlide + 1);
-    }, 5000);
+    let autoSlide = setInterval(nextSlide, 5000);
 
     // Botón siguiente
     nextBtn.addEventListener('click', () => {
         clearInterval(autoSlide); // Detener el cambio automático
-        showSlide(currentSlide + 1);
-        autoSlide = setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000); // Reiniciar el cambio automático
+        nextSlide();
+        autoSlide = setInterval(nextSlide, 5000); // Reiniciar
     });
 
     // Botón anterior
     prevBtn.addEventListener('click', () => {
         clearInterval(autoSlide); // Detener el cambio automático
-        showSlide(currentSlide - 1);
-        autoSlide = setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000); // Reiniciar el cambio automático
+        if (currentSlide === 0) {
+            // Desde la primera diapositiva, saltar a la última sin animación
+            showSlide(totalSlides - 1, false);
+            // Inmediatamente iniciar la transición a la última diapositiva
+            setTimeout(() => {
+                showSlide(totalSlides - 1, true);
+            }, 0);
+        } else {
+            showSlide(currentSlide - 1, true);
+        }
+        autoSlide = setInterval(nextSlide, 5000); // Reiniciar
     });
 
     // Puntos indicadores
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             clearInterval(autoSlide); // Detener el cambio automático
-            showSlide(index);
-            autoSlide = setInterval(() => {
-                showSlide(currentSlide + 1);
-            }, 5000); // Reiniciar el cambio automático
+            showSlide(index, true);
+            autoSlide = setInterval(nextSlide, 5000); // Reiniciar
         });
     });
 });
