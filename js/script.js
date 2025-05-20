@@ -37,55 +37,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Carousel
+    const slidesContainer = document.querySelector('.carousel-slides');
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.carousel-dot');
     const prevBtn = document.querySelector('.carousel-prev');
     const nextBtn = document.querySelector('.carousel-next');
-    const slidesContainer = document.querySelector('.carousel-slides');
-    let currentSlide = 0;
-    const totalSlides = slides.length;
+    const totalSlides = slides.length; // 6 diapositivas originales
+    let currentSlide = 1; // Comenzar en la primera diapositiva original (índice 1, después de la clonada)
+
+    // Clonar diapositivas para bucle infinito
+    const firstSlideClone = slides[0].cloneNode(true);
+    const lastSlideClone = slides[totalSlides - 1].cloneNode(true);
+    slidesContainer.appendChild(firstSlideClone); // Añadir primera diapositiva al final
+    slidesContainer.insertBefore(lastSlideClone, slides[0]); // Añadir última diapositiva al inicio
+
+    // Ajustar el ancho del contenedor para incluir diapositivas clonadas
+    slidesContainer.style.width = `${(totalSlides + 2) * 100}vw`;
+
+    // Establecer la posición inicial en la primera diapositiva original
+    slidesContainer.style.transform = `translateX(-${currentSlide * 100}vw)`;
 
     function showSlide(index, animate = true) {
-        // Normalizar el índice para el bucle infinito
-        if (index >= totalSlides) {
-            index = 0;
-        } else if (index < 0) {
-            index = totalSlides - 1;
-        }
-
-        // Actualizar la diapositiva actual
         currentSlide = index;
 
         // Aplicar la transformación
-        if (animate) {
-            slidesContainer.classList.remove('no-transition');
-            slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
-        } else {
-            // Desactivar transición para reinicio instantáneo
-            slidesContainer.classList.add('no-transition');
-            slidesContainer.style.transform = `translateX(${-currentSlide * 100}%)`;
-            // Forzar reflujo para que el cambio sea instantáneo
-            slidesContainer.offsetHeight;
-            slidesContainer.classList.remove('no-transition');
-        }
+        slidesContainer.style.transform = `translateX(-${currentSlide * 100}vw)`;
 
         // Actualizar puntos activos
+        let dotIndex = currentSlide - 1;
+        if (dotIndex < 0) dotIndex = totalSlides - 1;
+        if (dotIndex >= totalSlides) dotIndex = 0;
         dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentSlide].classList.add('active');
+        dots[dotIndex].classList.add('active');
+
+        // Manejar reinicio para bucle infinito
+        if (currentSlide === 0) {
+            // Llegamos a la diapositiva clonada al inicio (copia de la última)
+            setTimeout(() => {
+                slidesContainer.style.transition = 'none';
+                currentSlide = totalSlides; // Saltar a la última diapositiva original
+                slidesContainer.style.transform = `translateX(-${currentSlide * 100}vw)`;
+                slidesContainer.offsetHeight; // Forzar reflujo
+                slidesContainer.style.transition = 'transform 0.7s ease-in-out';
+            }, 700); // Igual a la duración de la transición
+        } else if (currentSlide === totalSlides + 1) {
+            // Llegamos a la diapositiva clonada al final (copia de la primera)
+            setTimeout(() => {
+                slidesContainer.style.transition = 'none';
+                currentSlide = 1; // Saltar a la primera diapositiva original
+                slidesContainer.style.transform = `translateX(-${currentSlide * 100}vw)`;
+                slidesContainer.offsetHeight; // Forzar reflujo
+                slidesContainer.style.transition = 'transform 0.7s ease-in-out';
+            }, 700); // Igual a la duración de la transición
+        }
     }
 
     // Manejar el cambio automático
     function nextSlide() {
-        if (currentSlide === totalSlides - 1) {
-            // Desde la última diapositiva, saltar a la primera sin animación
-            showSlide(0, false);
-            // Inmediatamente iniciar la transición a la primera diapositiva
-            setTimeout(() => {
-                showSlide(0, true);
-            }, 0);
-        } else {
-            showSlide(currentSlide + 1, true);
-        }
+        showSlide(currentSlide + 1);
     }
 
     // Cambio automático cada 5 segundos
@@ -101,16 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Botón anterior
     prevBtn.addEventListener('click', () => {
         clearInterval(autoSlide); // Detener el cambio automático
-        if (currentSlide === 0) {
-            // Desde la primera diapositiva, saltar a la última sin animación
-            showSlide(totalSlides - 1, false);
-            // Inmediatamente iniciar la transición a la última diapositiva
-            setTimeout(() => {
-                showSlide(totalSlides - 1, true);
-            }, 0);
-        } else {
-            showSlide(currentSlide - 1, true);
-        }
+        showSlide(currentSlide - 1);
         autoSlide = setInterval(nextSlide, 5000); // Reiniciar
     });
 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             clearInterval(autoSlide); // Detener el cambio automático
-            showSlide(index, true);
+            showSlide(index + 1); // Ajustar índice para diapositivas originales
             autoSlide = setInterval(nextSlide, 5000); // Reiniciar
         });
     });
