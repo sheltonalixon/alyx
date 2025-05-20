@@ -79,6 +79,76 @@ nav {
     transition: all 0.3s;
 }
 
+/* Carousel */
+#home {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.carousel-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header, footer y botones */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    padding: 20px;
+    text-align: center;
+}
+
+.carousel-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+    max-width: 600px;
+}
+
+.carousel-content .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
 /* Main Sections */
 section {
     padding: 60px 20px;
@@ -86,15 +156,6 @@ section {
     margin: 0 auto;
     text-align: center;
     position: relative; /* Sobre las partículas */
-    /* Sin fondo para mostrar partículas */
-}
-
-#home {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     /* Sin fondo para mostrar partículas */
 }
 
@@ -226,12 +287,6 @@ p {
     color: #3498db; /* Texto azul claro en hover */
 }
 
-/* Small Button Variant */
-.btn.small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-}
-
 /* Social Links */
 .social-links {
     display: flex;
@@ -288,6 +343,20 @@ footer {
 
     h2 {
         font-size: 1.5rem;
+    }
+
+    .carousel-content h1 {
+        font-size: 2rem;
+    }
+
+    .carousel-content p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .carousel-content .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 
     .project-grid {
