@@ -99,11 +99,7 @@ nav {
     display: flex;
     width: 100vw; /* Abarca todo el ancho */
     height: 100%;
-    transition: transform 0.5s ease;
-}
-
-.carousel-slides.no-transition {
-    transition: none; /* Desactiva la transición para reinicio */
+    transition: transform 0.7s ease-in-out; /* Transición más suave */
 }
 
 .carousel-slide {
