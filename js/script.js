@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu toggle
+    // Navigation toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -38,22 +38,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Carousel
     const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
     let currentSlide = 0;
+    const totalSlides = slides.length;
 
     function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
+        // Asegurar que el índice esté dentro de los límites
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
+        }
+
+        // Mover el carrusel
+        const offset = -currentSlide * 100;
+        document.querySelector('.carousel-slides').style.transform = `translateX(${offset}%)`;
+
+        // Actualizar puntos activos
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentSlide].classList.add('active');
+    }
+
+    // Cambio automático cada 5 segundos
+    let autoSlide = setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000);
+
+    // Botón siguiente
+    nextBtn.addEventListener('click', () => {
+        clearInterval(autoSlide); // Detener el cambio automático
+        showSlide(currentSlide + 1);
+        autoSlide = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000); // Reiniciar el cambio automático
+    });
+
+    // Botón anterior
+    prevBtn.addEventListener('click', () => {
+        clearInterval(autoSlide); // Detener el cambio automático
+        showSlide(currentSlide - 1);
+        autoSlide = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000); // Reiniciar el cambio automático
+    });
+
+    // Puntos indicadores
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(autoSlide); // Detener el cambio automático
+            showSlide(index);
+            autoSlide = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000); // Reiniciar el cambio automático
         });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Mostrar la primera diapositiva al cargar
-    showSlide(currentSlide);
-
-    // Cambiar diapositiva cada 5 segundos
-    setInterval(nextSlide, 5000);
+    });
 });
