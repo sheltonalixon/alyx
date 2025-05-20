@@ -193,6 +193,7 @@ p {
 }
 
 .project-overlay h3 {
+    font-family: 'Orbitron', sans-serif; /* Fuente Orbitron para los títulos */
     font-size: 1.8rem;
     margin-bottom: 10px;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
@@ -288,6 +289,7 @@ footer {
     }
 
     .project-overlay h3 {
+        font-family: 'Orbitron', sans-serif; /* Mantener Orbitron en móviles */
         font-size: 1.4rem;
     }
 
