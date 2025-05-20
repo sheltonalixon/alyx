@@ -119,6 +119,8 @@ nav {
     left: 0;
     z-index: 1;
     margin: 0; /* Eliminar márgenes */
+    opacity: 1; /* Asegurar que la imagen sea nítida */
+    filter: none; /* Sin filtros que afecten la calidad */
 }
 
 .carousel-content {
