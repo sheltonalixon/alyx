@@ -22,7 +22,7 @@ body {
 
 /* Header and Navigation */
 header {
-    background: rgba(107, 72, 255, 0.85); /* Color púrpura azulado inspirado en partículas */
+    background: rgba(10, 10, 10, 0.85); /* Negro que combina con el fondo */
     backdrop-filter: blur(5px); /* Efecto de desenfoque */
     color: #fff;
     padding: 0.9rem 0;
@@ -244,7 +244,7 @@ p {
 
 /* Footer */
 footer {
-    background: rgba(107, 72, 255, 0.85); /* Color púrpura azulado inspirado en partículas */
+    background: rgba(10, 10, 10, 0.85); /* Negro que combina con el fondo */
     backdrop-filter: blur(5px);
     color: #fff;
     text-align: center;
@@ -261,7 +261,7 @@ footer {
         position: absolute;
         top: 52px;
         left: 0;
-        background: rgba(107, 72, 255, 0.9); /* Ajustar también el menú en móviles */
+        background: rgba(10, 10, 10, 0.9); /* Negro para el menú móvil */
     }
 
     .nav-menu.active {
