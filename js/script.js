@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Menu toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -34,4 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         retina_detect: true
     });
+
+    // Carousel
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Mostrar la primera diapositiva al cargar
+    showSlide(currentSlide);
+
+    // Cambiar diapositiva cada 5 segundos
+    setInterval(nextSlide, 5000);
 });
