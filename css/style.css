@@ -229,6 +229,14 @@ footer {
     position: relative;
 }
 
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
