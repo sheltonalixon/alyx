@@ -1,52 +1,154 @@
-<section id="home">
-    <div class="carousel">
-        <div class="carousel-slide active">
-            <img src="images/slide1.jpg" alt="Slide 1">
-            <div class="carousel-content">
-                <h1>Bienvenidos a Alyx</h1>
-                <p>Tu sitio web de portafolio moderno.</p>
-                <a href="#about" class="btn">Saber más</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alyx - Portafolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts: Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <nav>
+            <div class="logo">Alyx</div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </div>
-        <div class="carousel-slide">
-            <img src="images/slide2.jpg" alt="Slide 2">
-            <div class="carousel-content">
-                <h1>Proyecto Innovador</h1>
-                <p>Explora nuestras soluciones tecnológicas de vanguardia.</p>
-                <a href="#portfolio" class="btn">Ver más</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre mi</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#community">Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="images/slide1.jpg" alt="Slide 1">
+                    <div class="carousel-content">
+                        <h1>Bienvenidos a Alyx</h1>
+                        <p>Tu sitio web de portafolio moderno.</p>
+                        <a href="#about" class="btn">Saber más</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide2.jpg" alt="Slide 2">
+                    <div class="carousel-content">
+                        <h1>Proyecto Innovador</h1>
+                        <p>Explora nuestras soluciones tecnológicas de vanguardia.</p>
+                        <a href="#portfolio" class="btn">Ver más</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide3.jpg" alt="Slide 3">
+                    <div class="carousel-content">
+                        <h1>Conecta con la Comunidad</h1>
+                        <p>Únete a nuestra comunidad para compartir ideas y proyectos.</p>
+                        <a href="#community" class="btn">Únete ahora</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide4.jpg" alt="Slide 4">
+                    <div class="carousel-content">
+                        <h1>Desarrollo Creativo</h1>
+                        <p>Creamos experiencias web únicas y personalizadas.</p>
+                        <a href="#portfolio" class="btn">Descubre más</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide5.jpg" alt="Slide 5">
+                    <div class="carousel-content">
+                        <h1>Tecnología Moderna</h1>
+                        <p>Utilizamos las últimas herramientas para tus proyectos.</p>
+                        <a href="#portfolio" class="btn">Ver proyectos</a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide6.jpg" alt="Slide 6">
+                    <div class="carousel-content">
+                        <h1>Únete al Futuro</h1>
+                        <p>Construyamos juntos el futuro de la web.</p>
+                        <a href="#contact" class="btn">Contáctame</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="carousel-slide">
-            <img src="images/slide3.jpg" alt="Slide 3">
-            <div class="carousel-content">
-                <h1>Conecta con la Comunidad</h1>
-                <p>Únete a nuestra comunidad para compartir ideas y proyectos.</p>
-                <a href="#community" class="btn">Únete ahora</a>
+        </section>
+
+        <section id="about">
+            <h2>Sobre mi</h2>
+            <p>Hola, soy [Tu Nombre], un desarrollador apasionado por crear experiencias web increíbles.</p>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portafolio</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/bot-reaw.jpg" alt="Bot Reaw">
+                        <div class="project-overlay">
+                            <h3>Bot Reaw</h3>
+                            <p>Un bot de Discord con notificaciones de anime, comandos slash y suscripciones personalizadas.</p>
+                            <a href="https://github.com/sheltonalixon/bot-reaw" class="btn small">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/youtube-channel.jpg" alt="Canal de YouTube">
+                        <div class="project-overlay">
+                            <h3>Canal de YouTube</h3>
+                            <p>Tutoriales, streams y contenido sobre Discord y creación de apps.</p>
+                            <a href="https://youtube.com/@tu-canal" class="btn small">Ver Canal</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="carousel-slide">
-            <img src="images/slide4.jpg" alt="Slide 4">
-            <div class="carousel-content">
-                <h1>Desarrollo Creativo</h1>
-                <p>Creamos experiencias web únicas y personalizadas.</p>
-                <a href="#portfolio" class="btn">Descubre más</a>
+        </section>
+
+        <section id="community">
+            <h2>Comunidad</h2>
+            <p>Forma parte de mi comunidad en Discord, donde conectamos, creamos y compartimos ideas. ¡También puedes seguirme en mis otras redes sociales!</p>
+            <div class="social-links">
+                <a href="https://discord.gg/tu-servidor" class="social-icon" title="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://twitch.tv/tu-canal" class="social-icon" title="Twitch">
+                    <i class="fab fa-twitch"></i>
+                </a>
+                <a href="https://youtube.com/@tu-canal" class="social-icon" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://facebook.com/tu-pagina" class="social-icon" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/tu-cuenta" class="social-icon" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://tiktok.com/@tu-cuenta" class="social-icon" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://x.com/tu-cuenta" class="social-icon" title="X">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
             </div>
-        </div>
-        <div class="carousel-slide">
-            <img src="images/slide5.jpg" alt="Slide 5">
-            <div class="carousel-content">
-                <h1>Tecnología Moderna</h1>
-                <p>Utilizamos las últimas herramientas para tus proyectos.</p>
-                <a href="#portfolio" class="btn">Ver proyectos</a>
-            </div>
-        </div>
-        <div class="carousel-slide">
-            <img src="images/slide6.jpg" alt="Slide 6">
-            <div class="carousel-content">
-                <h1>Únete al Futuro</h1>
-                <p>Construyamos juntos el futuro de la web.</p>
-                <a href="#contact" class="btn">Contáctame</a>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contacto</p>
+        <p>Contáctame en <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
