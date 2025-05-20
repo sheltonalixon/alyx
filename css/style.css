@@ -9,6 +9,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #fff; /* Texto blanco para legibilidad */
+    margin: 0; /* Asegurar que no haya márgenes en el body */
+    overflow-x: hidden; /* Evitar desborde horizontal */
 }
 
 /* Particles.js */
@@ -84,19 +86,24 @@ nav {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar padding */
+    width: 100%; /* Asegurar que ocupe todo el ancho */
 }
 
 .carousel {
-    width: 100%;
-    height: 100vh;
+    width: 100%; /* Cambiado de 100vw a 100% para evitar desborde */
+    height: 100vh; /* Ocupar todo el alto */
     position: relative;
+    margin: 0; /* Asegurar que no haya márgenes */
 }
 
 .carousel-slide {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0; /* Asegurar que se extienda al borde derecho */
+    width: 100%; /* Ocupar todo el ancho */
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -113,7 +120,9 @@ nav {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0; /* Asegurar que la imagen se extienda al borde derecho */
     z-index: 1;
+    margin: 0; /* Eliminar márgenes */
 }
 
 .carousel-content {
@@ -128,6 +137,8 @@ nav {
     backdrop-filter: blur(5px); /* Efecto de desenfoque */
     padding: 20px;
     text-align: center;
+    width: 100%; /* Asegurar que ocupe todo el ancho */
+    margin: 0; /* Eliminar márgenes */
 }
 
 .carousel-content h1 {
@@ -155,7 +166,7 @@ section {
     max-width: 1284px; /* Para las tarjetas de 627px */
     margin: 0 auto;
     text-align: center;
-    position: relative; /* Sobre las partículas */
+    position: proper; /* Sobre las partículas */
     /* Sin fondo para mostrar partículas */
 }
 
