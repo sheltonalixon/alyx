@@ -114,18 +114,6 @@ nav {
     position: relative;
 }
 
-/* Eliminamos la capa semi-transparente para imágenes más nítidas */
-.carousel-slide:not(:first-child)::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2); /* Capa más ligera para mantener nitidez */
-    z-index: 1;
-}
-
 .slide-content {
     position: relative;
     z-index: 2;
@@ -138,13 +126,13 @@ nav {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra más fuerte para legibilidad */
 }
 
 .carousel-slide p {
     font-size: 1.2rem;
     color: #e0e0e0;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra más fuerte para legibilidad */
     margin-bottom: 1.5rem;
 }
 
