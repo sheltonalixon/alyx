@@ -1,38 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Swiper
+    // Inicializar Swiper.js
     const swiper = new Swiper('.swiper-container', {
         loop: true, // Bucle infinito
         autoplay: {
-            delay: 5000, // Cambia cada 5 segundos
-            disableOnInteraction: false, // No detener autoplay al interactuar
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            delay: 5000, // 5 segundos por slide
+            disableOnInteraction: false, // Continúa autoplay tras interacción
         },
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        speed: 600, // Velocidad de transición
-    });
-
-    // Navigation toggle
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        slidesPerView: 1, // Un slide a la vez
+        spaceBetween: 0, // Sin espacio entre slides
     });
 
     // Particles.js
@@ -52,5 +35,23 @@ document.addEventListener('DOMContentLoaded', () => {
             modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
         },
         retina_detect: true
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Toggle mobile menu
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
     });
 });
