@@ -5,20 +5,10 @@
     box-sizing: border-box;
 }
 
-/* CSS Variables for consistency */
-:root {
-    --primary-color: #fff;
-    --secondary-color: #e0e0e0;
-    --hover-color: #3498db;
-    --background-dark: rgba(10, 10, 10, 0.85);
-    --background-hover: rgba(50, 50, 50, 0.85);
-    --shadow-dark: rgba(0, 0, 0, 0.7);
-}
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: var(--primary-color);
+    color: #fff; /* Texto blanco para legibilidad */
 }
 
 /* Particles.js */
@@ -26,15 +16,15 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    background: #0a0a0a;
+    z-index: -1; /* Fondo detrás del contenido */
+    background: #0a0a0a; /* Fondo oscuro para partículas */
 }
 
 /* Header and Navigation */
 header {
-    background: var(--background-dark);
-    backdrop-filter: blur(5px);
-    color: var(--primary-color);
+    background: rgba(10, 10, 10, 0.85); /* Negro que combina con el fondo */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    color: #fff;
     padding: 0.9rem 0;
     position: sticky;
     top: 0;
@@ -45,7 +35,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1284px;
+    max-width: 1284px; /* Para las tarjetas de 627px */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -53,7 +43,7 @@ nav {
 .logo {
     font-size: 1.4rem;
     font-weight: bold;
-    color: var(--primary-color);
+    color: #fff;
 }
 
 .nav-menu {
@@ -66,13 +56,13 @@ nav {
 }
 
 .nav-menu a {
-    color: var(--primary-color);
+    color: #fff;
     text-decoration: none;
     font-size: 1rem;
 }
 
 .nav-menu a:hover {
-    color: var(--hover-color);
+    color: #3498db;
 }
 
 .nav-toggle {
@@ -84,7 +74,7 @@ nav {
 .nav-toggle span {
     width: 24px;
     height: 2px;
-    background: var(--primary-color);
+    background: #fff;
     margin: 2px 0;
     transition: all 0.3s;
 }
@@ -92,81 +82,75 @@ nav {
 /* Main Sections */
 section {
     padding: 60px 20px;
-    max-width: 1284px;
+    max-width: 1284px; /* Para las tarjetas de 627px */
     margin: 0 auto;
     text-align: center;
-    position: relative;
+    position: relative; /* Sobre las partículas */
+    /* Sin fondo para mostrar partículas */
 }
 
 #home {
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
-    position: relative;
-    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Sin fondo para mostrar partículas */
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
-    text-shadow: 0 0 8px var(--shadow-dark);
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-color);
-    text-shadow: 0 0 5px var(--shadow-dark);
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 p {
-    color: var(--secondary-color);
+    color: #e0e0e0; /* Texto gris claro */
 }
 
-/* Buttons */
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background: var(--background-dark);
-    backdrop-filter: blur(5px);
-    color: var(--primary-color);
+    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header y footer */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    color: #fff; /* Texto blanco */
     text-decoration: none;
     border-radius: 5px;
     margin-top: 1rem;
-    transition: background 0.3s ease, color 0.3s ease;
-    will-change: background, color;
+    transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
 }
 
 .btn:hover {
-    background: var(--background-hover);
-    color: var(--hover-color);
-}
-
-.btn.small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
+    color: #3498db; /* Texto azul claro en hover */
 }
 
 /* Projects Grid */
 .project-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 30px;
     margin-top: 20px;
     justify-content: center;
 }
 
 .project-card {
-    max-width: 627px;
-    width: 100%;
+    width: 627px;
     height: 250px;
-    background: transparent;
+    background: transparent; /* Sin fondo para mostrar imagen nítida */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     overflow: hidden;
-    will-change: transform;
+    flex-shrink: 0;
 }
 
 .project-card:hover {
@@ -185,6 +169,8 @@ p {
     object-fit: cover;
     border-radius: 5px;
     display: block;
+    opacity: 1; /* Imagen nítida */
+    filter: none; /* Sin filtros que opaquen */
 }
 
 .project-overlay {
@@ -193,35 +179,57 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
-    color: var(--primary-color);
+    background: transparent; /* Transparente por defecto */
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; /* Alinear elementos a la izquierda */
     padding: 20px;
-    text-align: left;
-    opacity: 1;
-    transition: background 0.3s ease;
+    text-align: left; /* Alinear texto a la izquierda */
+    opacity: 1; /* Texto siempre visible */
+    transition: background 0.3s ease; /* Transición suave para fondo */
 }
 
 .project-card:hover .project-overlay {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-opaco al pasar el ratón */
 }
 
 .project-overlay h3 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif; /* Fuente Orbitron para los títulos */
     font-size: 1.8rem;
     margin-bottom: 10px;
-    text-shadow: 0 0 5px var(--shadow-dark);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    text-align: left; /* Asegurar que el título esté alineado a la izquierda */
 }
 
 .project-overlay p {
     font-size: 1rem;
     margin-bottom: 15px;
     max-width: 80%;
-    color: var(--primary-color);
-    text-shadow: 0 0 5px var(--shadow-dark);
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-align: left; /* Alinear descripción a la izquierda */
+}
+
+.project-overlay .btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header y footer */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    color: #fff; /* Texto blanco */
+    transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
+}
+
+.project-overlay .btn.small:hover {
+    background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
+    color: #3498db; /* Texto azul claro en hover */
+}
+
+/* Small Button Variant */
+.btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
 }
 
 /* Social Links */
@@ -233,22 +241,22 @@ p {
 }
 
 .social-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
+    font-size: 2rem; /* Tamaño de los iconos */
+    color: #fff; /* Color blanco para los iconos */
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icon:hover {
-    color: var(--hover-color);
-    transform: scale(1.2);
+    color: #3498db; /* Color azul al pasar el ratón */
+    transform: scale(1.2); /* Efecto de aumento al pasar el ratón */
 }
 
 /* Footer */
 footer {
-    background: var(--background-dark);
+    background: rgba(10, 10, 10, 0.85); /* Negro que combina con el fondo */
     backdrop-filter: blur(5px);
-    color: var(--primary-color);
+    color: #fff;
     text-align: center;
     padding: 20px 0;
     position: relative;
@@ -260,9 +268,8 @@ footer {
     width: 100%;
     max-width: 1284px;
     margin: 0 auto;
-    padding: 0;
     overflow: hidden;
-    height: 100vh; /* Cambiado a height fijo para ocupar todo el espacio */
+    min-height: 100vh;
 }
 
 .carousel-slides {
@@ -276,38 +283,35 @@ footer {
     flex: 0 0 100%;
     position: relative;
     display: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-slide.active {
-    display: block;
+    display: flex;
 }
 
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.8); /* Ligeramente oscurecido para legibilidad */
-}
-
-.carousel-caption {
-    position: absolute;
-    top: 60px; /* Ajustado para estar cerca del header */
-    left: 50%;
-    transform: translateX(-50%);
+.carousel-content {
     text-align: center;
-    color: var(--primary-color);
-    text-shadow: 0 0 8px var(--shadow-dark);
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    background: rgba(10, 10, 10, 0.5); /* Fondo semitransparente */
     padding: 20px;
-    background: none;
+    border-radius: 5px;
+    max-width: 80%;
 }
 
-.carousel-caption h1 {
+.carousel-content h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.carousel-caption p {
+.carousel-content p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
@@ -316,9 +320,9 @@ footer {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--background-dark);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(5px);
-    color: var(--primary-color);
+    color: #fff;
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -328,7 +332,7 @@ footer {
 }
 
 .carousel-prev:hover, .carousel-next:hover {
-    background: var(--background-hover);
+    background: rgba(50, 50, 50, 0.85);
 }
 
 .carousel-prev {
@@ -357,8 +361,12 @@ footer {
     transition: background 0.3s ease;
 }
 
-.carousel-dot.active, .carousel-dot:hover {
-    background: var(--hover-color);
+.carousel-dot.active {
+    background: #3498db;
+}
+
+.carousel-dot:hover {
+    background: #3498db;
 }
 
 /* Responsive Design */
@@ -370,7 +378,7 @@ footer {
         position: absolute;
         top: 52px;
         left: 0;
-        background: var(--background-dark);
+        background: rgba(10, 10, 10, 0.9); /* Negro para el menú móvil */
         z-index: 99;
     }
 
@@ -380,10 +388,6 @@ footer {
 
     .nav-menu li {
         margin: 10px 0;
-    }
-
-    .nav-toggle {
-        display: flex;
     }
 
     h1 {
@@ -400,46 +404,45 @@ footer {
     }
 
     .project-card {
-        max-width: 300px;
+        width: 300px;
         height: 200px;
     }
 
+    .project-overlay {
+        align-items: flex-start; /* Mantener alineación izquierda en móviles */
+        text-align: left; /* Mantener texto alineado a la izquierda */
+    }
+
     .project-overlay h3 {
+        font-family: 'Orbitron', sans-serif; /* Mantener Orbitron en móviles */
         font-size: 1.4rem;
+        text-align: left; /* Asegurar alineación izquierda */
     }
 
     .project-overlay p {
         font-size: 0.9rem;
         max-width: 90%;
+        text-align: left; /* Alinear descripción a la izquierda */
     }
 
     .social-icon {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
     }
 
-    .carousel {
-        height: 80vh; /* Ajustado para móviles */
-    }
-
-    .carousel-slide img {
-        height: 100%;
-    }
-
-    .carousel-caption {
-        top: 40px; /* Más cerca del top en móviles */
-        padding: 10px;
-    }
-
-    .carousel-caption h1 {
+    .carousel-content h1 {
         font-size: 1.8rem;
     }
 
-    .carousel-caption p {
+    .carousel-content p {
         font-size: 1rem;
     }
 
     .carousel-prev, .carousel-next {
         padding: 8px;
         font-size: 1.2rem;
+    }
+
+    .carousel-slide {
+        min-height: 80vh; /* Reducir altura en móviles */
     }
 }
