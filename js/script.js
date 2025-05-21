@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigation Toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -14,13 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Accesibilidad para teclado en el botón de navegación
-    navToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            navMenu.classList.toggle('active');
-        }
-    });
-
     // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -32,10 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Particles.js
-    const particleCount = window.innerWidth < 768 ? 40 : 80;
     particlesJS('particles-js', {
         particles: {
-            number: { value: particleCount, density: { enable: true, value_area: 800 } },
+            number: { value: window.innerWidth < 768 ? 40 : 80, density: { enable: true, value_area: 800 } },
             color: { value: '#6b48ff' },
             shape: { type: 'circle' },
             opacity: { value: 0.5, random: true },
@@ -52,46 +43,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Carousel
-    const carousel = document.querySelector('.carousel');
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    const indicators = document.querySelectorAll('.indicator');
-    let currentIndex = 0;
-    const totalItems = carouselItems.length;
+    const carouselSlides = document.querySelectorAll('.carousel-slide');
+    const carouselDots = document.querySelectorAll('.carousel-dot');
+    const prevButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+    let currentSlide = 0;
+    const slideInterval = 5000; // Cambia cada 5 segundos
 
-    // Función para actualizar el carrusel
-    function updateCarousel() {
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentIndex);
+    function showSlide(index) {
+        carouselSlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
         });
+        carouselDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % carouselSlides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length;
+        showSlide(currentSlide);
     }
 
     // Reproducción automática
-    function startAutoPlay() {
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalItems;
-            updateCarousel();
-        }, 5000); // Cambia cada 5 segundos
-    }
+    let autoSlide = setInterval(nextSlide, slideInterval);
 
-    // Manejo de clics en indicadores
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            currentIndex = index;
-            updateCarousel();
+    // Botones de navegación
+    prevButton.addEventListener('click', () => {
+        clearInterval(autoSlide);
+        prevSlide();
+        autoSlide = setInterval(nextSlide, slideInterval); // Reinicia el intervalo
+    });
+
+    nextButton.addEventListener('click', () => {
+        clearInterval(autoSlide);
+        nextSlide();
+        autoSlide = setInterval(nextSlide, slideInterval); // Reinicia el intervalo
+    });
+
+    // Puntos de navegación
+    carouselDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(autoSlide);
+            showSlide(index);
+            autoSlide = setInterval(nextSlide, slideInterval); // Reinicia el intervalo
         });
     });
 
-    // Accesibilidad para teclado en indicadores
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                currentIndex = index;
-                updateCarousel();
-            }
-        });
+    // Accesibilidad para teclado
+    prevButton.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            prevSlide();
+        }
     });
 
-    // Iniciar carrusel
-    startAutoPlay();
+    nextButton.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            nextSlide();
+        }
+    });
+
+    // Accesibilidad para teclado en navToggle
+    navToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            navMenu.classList.toggle('active');
+        }
+    });
 });
