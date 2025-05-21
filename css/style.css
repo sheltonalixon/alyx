@@ -79,63 +79,6 @@ nav {
     transition: all 0.3s;
 }
 
-/* Carousel */
-.carousel {
-    width: 100vw; /* Ancho completo de la pantalla */
-    height: 100vh; /* Altura completa de la pantalla */
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-slide {
-    width: 100%;
-    height: 100%;
-    display: none; /* Ocultar todos los slides por defecto */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.5s ease; /* Transición suave para el cambio de slides */
-}
-
-.carousel-slide.active {
-    display: flex; /* Mostrar el slide activo */
-    opacity: 1;
-}
-
-.carousel-slide img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajustar imagen para cubrir el slide */
-    z-index: -1; /* Imagen detrás del contenido */
-    opacity: 0.7; /* Suavizar imagen para legibilidad del texto */
-}
-
-.carousel-slide h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
-    z-index: 1; /* Asegurar que el texto esté sobre la imagen */
-}
-
-.carousel-slide p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: #e0e0e0;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.carousel-slide .btn {
-    z-index: 1; /* Botón sobre la imagen */
-}
-
 /* Main Sections */
 section {
     padding: 60px 20px;
@@ -143,14 +86,33 @@ section {
     margin: 0 auto;
     text-align: center;
     position: relative; /* Sobre las partículas */
+    /* Sin fondo para mostrar partículas */
 }
 
 #home {
-    padding: 0; /* Sin padding para el carrusel */
     min-height: 100vh;
+    position: relative;
+    overflow: hidden; /* Evitar desbordamiento del carrusel */
 }
 
-/* Botones */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    color: #e0e0e0; /* Texto gris claro */
+}
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -261,6 +223,12 @@ section {
     color: #3498db; /* Texto azul claro en hover */
 }
 
+/* Small Button Variant */
+.btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
 /* Social Links */
 .social-links {
     display: flex;
@@ -291,6 +259,71 @@ footer {
     position: relative;
 }
 
+/* Carousel Styles */
+.carousel {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: brightness(0.5); /* Oscurecer imagen para legibilidad del texto */
+}
+
+.carousel-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+    max-width: 600px;
+}
+
+.carousel-content .btn {
+    font-size: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
@@ -317,18 +350,6 @@ footer {
 
     h2 {
         font-size: 1.5rem;
-    }
-
-    .carousel-slide h1 {
-        font-size: 2rem; /* Tamaño reducido para móviles */
-    }
-
-    .carousel-slide p {
-        font-size: 1rem; /* Tamaño reducido para móviles */
-    }
-
-    .carousel-slide img {
-        opacity: 0.8; /* Mayor opacidad en móviles para mejor legibilidad */
     }
 
     .project-grid {
@@ -360,5 +381,19 @@ footer {
 
     .social-icon {
         font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
+    }
+
+    .carousel-content h1 {
+        font-size: 2rem;
+    }
+
+    .carousel-content p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .carousel-content .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
     }
 }
