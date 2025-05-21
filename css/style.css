@@ -79,94 +79,6 @@ nav {
     transition: all 0.3s;
 }
 
-/* Swiper Carousel */
-.swiper-container {
-    width: 100vw; /* Abarca toda la anchura de la pantalla */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    position: relative;
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent; /* Fondo transparente para mostrar partículas */
-}
-
-.slide-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1284px; /* Igual que otras secciones */
-    width: 100%;
-    padding: 20px;
-}
-
-.slide-content img {
-    width: 50%; /* Imagen ocupa la mitad del slide */
-    height: auto;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.slide-content .text-content {
-    width: 45%; /* Texto ocupa el resto del espacio */
-    text-align: left;
-    padding-left: 20px;
-}
-
-.slide-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.slide-content p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: #e0e0e0;
-}
-
-.slide-content .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(5px);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.slide-content .btn:hover {
-    background: rgba(50, 50, 50, 0.85);
-    color: #3498db;
-}
-
-/* Swiper Pagination and Navigation */
-.swiper-pagination-bullet {
-    background: #fff;
-    opacity: 0.7;
-}
-
-.swiper-pagination-bullet-active {
-    background: #3498db;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-    color: #fff;
-    opacity: 0.7;
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    opacity: 1;
-}
-
 /* Main Sections */
 section {
     padding: 60px 20px;
@@ -179,29 +91,53 @@ section {
 
 #home {
     min-height: 100vh;
+    padding: 0; /* Sin padding para que el carrusel ocupe todo */
+    overflow: hidden;
+}
+
+.swiper-container {
+    width: 100vw; /* Ocupa toda la anchura de la pantalla */
+    height: 100vh; /* Ocupa toda la altura de la sección */
+}
+
+.swiper-slide {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0; /* Sin padding para que el carrusel abarque todo */
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para legibilidad */
 }
 
-h1 {
+.carousel-content {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    max-width: 1284px; /* Igual que otras secciones */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.carousel-image {
+    width: 100%;
+    max-width: 600px; /* Limitar tamaño de la imagen */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.carousel-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-p {
-    color: #e0e0e0; /* Texto gris claro */
+.carousel-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
@@ -212,13 +148,45 @@ p {
     color: #fff; /* Texto blanco */
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 1rem;
     transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
 }
 
 .btn:hover {
     background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
     color: #3498db; /* Texto azul claro en hover */
+}
+
+/* Swiper Navigation and Pagination */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff;
+    background: rgba(10, 10, 10, 0.85);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 1.2rem;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: rgba(50, 50, 50, 0.85);
+}
+
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: #3498db;
+    opacity: 1;
 }
 
 /* Projects Grid */
@@ -403,29 +371,27 @@ footer {
         font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
     }
 
-    /* Swiper Responsive */
-    .slide-content {
-        flex-direction: column; /* Apilar elementos en móviles */
-        align-items: center;
-        text-align: center;
-    }
-
-    .slide-content img {
-        width: 100%; /* Imagen ocupa todo el ancho */
-        max-height: 200px;
-    }
-
-    .slide-content .text-content {
-        width: 100%; /* Texto ocupa todo el ancho */
-        padding-left: 0;
-        padding-top: 20px;
-    }
-
-    .slide-content h2 {
+    .carousel-content h1 {
         font-size: 1.8rem;
     }
 
-    .slide-content p {
+    .carousel-content p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .carousel-image {
+        max-width: 300px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 30px;
+        height: 30px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
         font-size: 1rem;
     }
 }
