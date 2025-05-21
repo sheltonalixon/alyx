@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Menú de navegación
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -6,7 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.toggle('active');
     });
 
-    // Smooth scroll for navigation links
+    navToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            navMenu.classList.toggle('active');
+        }
+    });
+
+    // Cerrar menú móvil al hacer clic en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(anchor => {
+        anchor.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Smooth scroll para enlaces de navegación
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -19,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Particles.js
     particlesJS('particles-js', {
         particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
+            number: { value: window.innerWidth < 768 ? 40 : 80, density: { enable: true, value_area: 800 } },
             color: { value: '#6b48ff' },
             shape: { type: 'circle' },
             opacity: { value: 0.5, random: true },
@@ -35,24 +49,56 @@ document.addEventListener('DOMContentLoaded', () => {
         retina_detect: true
     });
 
-    // Carousel Auto-Play
-    const slides = document.querySelectorAll('.carousel-slide');
+    // Carrusel automático
+    const carouselInner = document.querySelector('.carousel-inner');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.carousel-indicators .indicator');
     let currentSlide = 0;
+    const totalSlides = carouselItems.length;
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
+    function goToSlide(index) {
+        carouselInner.style.transform = `translateX(-${index * 16.6667}%)`;
+        carouselItems.forEach(item => item.classList.remove('active'));
+        carouselItems[index].classList.add('active');
+        indicators.forEach(ind => ind.classList.remove('active'));
+        indicators[index].classList.add('active');
+        currentSlide = index;
     }
 
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
     }
 
-    // Mostrar el primer carril al cargar
-    showSlide(currentSlide);
+    // Reproducción automática cada 5 segundos
+    let autoSlide = setInterval(nextSlide, 5000);
 
-    // Cambiar carril cada 5 segundos
-    setInterval(nextSlide, 5000);
+    // Pausar el carrusel al pasar el ratón
+    carouselInner.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    carouselInner.addEventListener('mouseleave', () => {
+        autoSlide = setInterval(nextSlide, 5000);
+    });
+
+    // Control de indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            clearInterval(autoSlide);
+            goToSlide(index);
+            autoSlide = setInterval(nextSlide, 5000);
+        });
+    });
+
+    // Control de teclado para el carrusel
+    document.querySelector('.carousel').addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            clearInterval(autoSlide);
+            nextSlide();
+            autoSlide = setInterval(nextSlide, 5000);
+        } else if (e.key === 'ArrowLeft') {
+            clearInterval(autoSlide);
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(currentSlide);
+            autoSlide = setInterval(nextSlide, 5000);
+        }
+    });
 });
