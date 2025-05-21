@@ -5,10 +5,20 @@
     box-sizing: border-box;
 }
 
+/* CSS Variables for consistency */
+:root {
+    --primary-color: #fff;
+    --secondary-color: #e0e0e0;
+    --hover-color: #3498db;
+    --background-dark: rgba(10, 10, 10, 0.85);
+    --background-hover: rgba(50, 50, 50, 0.85);
+    --shadow-dark: rgba(0, 0, 0, 0.7);
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #fff; /* Texto blanco para legibilidad */
+    color: var(--primary-color);
 }
 
 /* Particles.js */
@@ -16,15 +26,15 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Fondo detrás del contenido */
-    background: #0a0a0a; /* Fondo oscuro para partículas */
+    z-index: -1;
+    background: #0a0a0a;
 }
 
 /* Header and Navigation */
 header {
-    background: rgba(10, 10, 10, 0.85); /* Negro que combina con el fondo */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    color: #fff;
+    background: var(--background-dark);
+    backdrop-filter: blur(5px);
+    color: var(--primary-color);
     padding: 0.9rem 0;
     position: sticky;
     top: 0;
@@ -35,7 +45,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1284px; /* Para las tarjetas de 627px */
+    max-width: 1284px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -43,7 +53,7 @@ nav {
 .logo {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #fff;
+    color: var(--primary-color);
 }
 
 .nav-menu {
@@ -56,13 +66,13 @@ nav {
 }
 
 .nav-menu a {
-    color: #fff;
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 1rem;
 }
 
 .nav-menu a:hover {
-    color: #3498db;
+    color: var(--hover-color);
 }
 
 .nav-toggle {
@@ -74,7 +84,7 @@ nav {
 .nav-toggle span {
     width: 24px;
     height: 2px;
-    background: #fff;
+    background: var(--primary-color);
     margin: 2px 0;
     transition: all 0.3s;
 }
@@ -82,74 +92,81 @@ nav {
 /* Main Sections */
 section {
     padding: 60px 20px;
-    max-width: 1284px; /* Para las tarjetas de 627px */
+    max-width: 1284px;
     margin: 0 auto;
     text-align: center;
-    position: relative; /* Sobre las partículas */
-    /* Sin fondo para mostrar partículas */
+    position: relative;
 }
 
 #home {
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
-    margin: 0; /* Eliminar márgenes */
-    padding: 0; /* Eliminar padding */
     position: relative;
-    top: 0; /* Asegurar que esté en la parte superior */
+    top: 0;
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    color: var(--primary-color);
+    text-shadow: 0 0 8px var(--shadow-dark);
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--shadow-dark);
 }
 
 p {
-    color: #e0e0e0; /* Texto gris claro */
+    color: var(--secondary-color);
 }
 
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header y footer */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    color: #fff; /* Texto blanco */
+    background: var(--background-dark);
+    backdrop-filter: blur(5px);
+    color: var(--primary-color);
     text-decoration: none;
     border-radius: 5px;
     margin-top: 1rem;
-    transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
+    transition: background 0.3s ease, color 0.3s ease;
+    will-change: background, color;
 }
 
 .btn:hover {
-    background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
-    color: #3498db; /* Texto azul claro en hover */
+    background: var(--background-hover);
+    color: var(--hover-color);
+}
+
+.btn.small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
 }
 
 /* Projects Grid */
 .project-grid {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 30px;
     margin-top: 20px;
     justify-content: center;
 }
 
 .project-card {
-    width: 627px;
+    max-width: 627px;
+    width: 100%;
     height: 250px;
-    background: transparent; /* Sin fondo para mostrar imagen nítida */
+    background: transparent;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     overflow: hidden;
-    flex-shrink: 0;
+    will-change: transform;
 }
 
 .project-card:hover {
@@ -168,8 +185,6 @@ p {
     object-fit: cover;
     border-radius: 5px;
     display: block;
-    opacity: 1; /* Imagen nítida */
-    filter: none; /* Sin filtros que opaquen */
 }
 
 .project-overlay {
@@ -178,57 +193,35 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent; /* Transparente por defecto */
-    color: #fff;
+    background: transparent;
+    color: var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Alinear elementos a la izquierda */
+    align-items: flex-start;
     padding: 20px;
-    text-align: left; /* Alinear texto a la izquierda */
-    opacity: 1; /* Texto siempre visible */
-    transition: background 0.3s ease; /* Transición suave para fondo */
+    text-align: left;
+    opacity: 1;
+    transition: background 0.3s ease;
 }
 
 .project-card:hover .project-overlay {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semi-opaco al pasar el ratón */
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .project-overlay h3 {
-    font-family: 'Orbitron', sans-serif; /* Fuente Orbitron para los títulos */
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.8rem;
     margin-bottom: 10px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
-    text-align: left; /* Asegurar que el título esté alineado a la izquierda */
+    text-shadow: 0 0 5px var(--shadow-dark);
 }
 
 .project-overlay p {
     font-size: 1rem;
     margin-bottom: 15px;
     max-width: 80%;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    text-align: left; /* Alinear descripción a la izquierda */
-}
-
-.project-overlay .btn.small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header y footer */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    color: #fff; /* Texto blanco */
-    transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
-}
-
-.project-overlay .btn.small:hover {
-    background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
-    color: #3498db; /* Texto azul claro en hover */
-}
-
-/* Small Button Variant */
-.btn.small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--shadow-dark);
 }
 
 /* Social Links */
@@ -240,22 +233,22 @@ p {
 }
 
 .social-icon {
-    font-size: 2rem; /* Tamaño de los iconos */
-    color: #fff; /* Color blanco para los iconos */
+    font-size: 2rem;
+    color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icon:hover {
-    color: #3498db; /* Color azul al pasar el ratón */
-    transform: scale(1.2); /* Efecto de aumento al pasar el ratón */
+    color: var(--hover-color);
+    transform: scale(1.2);
 }
 
 /* Footer */
 footer {
-    background: rgba(10, 10, 10, 0.85); /* Negro que combina con el fondo */
+    background: var(--background-dark);
     backdrop-filter: blur(5px);
-    color: #fff;
+    color: var(--primary-color);
     text-align: center;
     padding: 20px 0;
     position: relative;
@@ -266,11 +259,10 @@ footer {
     position: relative;
     width: 100%;
     max-width: 1284px;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     overflow: hidden;
-    min-height: 100vh;
-    display: block; /* Cambiado de flex a block para alinear al top */
+    height: 100vh; /* Cambiado a height fijo para ocupar todo el espacio */
 }
 
 .carousel-slides {
@@ -292,21 +284,22 @@ footer {
 
 .carousel-slide img {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
     display: block;
+    filter: brightness(0.8); /* Ligeramente oscurecido para legibilidad */
 }
 
 .carousel-caption {
     position: absolute;
-    top: 20px; /* Alinear cerca del borde superior */
+    top: 60px; /* Ajustado para estar cerca del header */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    color: #fff;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.7); /* Sombra más fuerte para legibilidad */
+    color: var(--primary-color);
+    text-shadow: 0 0 8px var(--shadow-dark);
     padding: 20px;
-    background: none; /* Sin fondo para integración con la imagen */
+    background: none;
 }
 
 .carousel-caption h1 {
@@ -323,9 +316,9 @@ footer {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(10, 10, 10, 0.85);
+    background: var(--background-dark);
     backdrop-filter: blur(5px);
-    color: #fff;
+    color: var(--primary-color);
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -335,7 +328,7 @@ footer {
 }
 
 .carousel-prev:hover, .carousel-next:hover {
-    background: rgba(50, 50, 50, 0.85);
+    background: var(--background-hover);
 }
 
 .carousel-prev {
@@ -364,12 +357,8 @@ footer {
     transition: background 0.3s ease;
 }
 
-.carousel-dot.active {
-    background: #3498db;
-}
-
-.carousel-dot:hover {
-    background: #3498db;
+.carousel-dot.active, .carousel-dot:hover {
+    background: var(--hover-color);
 }
 
 /* Responsive Design */
@@ -381,7 +370,7 @@ footer {
         position: absolute;
         top: 52px;
         left: 0;
-        background: rgba(10, 10, 10, 0.9); /* Negro para el menú móvil */
+        background: var(--background-dark);
         z-index: 99;
     }
 
@@ -391,6 +380,10 @@ footer {
 
     .nav-menu li {
         margin: 10px 0;
+    }
+
+    .nav-toggle {
+        display: flex;
     }
 
     h1 {
@@ -407,33 +400,34 @@ footer {
     }
 
     .project-card {
-        width: 300px;
+        max-width: 300px;
         height: 200px;
     }
 
-    .project-overlay {
-        align-items: flex-start; /* Mantener alineación izquierda en móviles */
-        text-align: left; /* Mantener texto alineado a la izquierda */
-    }
-
     .project-overlay h3 {
-        font-family: 'Orbitron', sans-serif; /* Mantener Orbitron en móviles */
         font-size: 1.4rem;
-        text-align: left; /* Asegurar alineación izquierda */
     }
 
     .project-overlay p {
         font-size: 0.9rem;
         max-width: 90%;
-        text-align: left; /* Alinear descripción a la izquierda */
     }
 
     .social-icon {
-        font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
+        font-size: 1.5rem;
+    }
+
+    .carousel {
+        height: 80vh; /* Ajustado para móviles */
+    }
+
+    .carousel-slide img {
+        height: 100%;
     }
 
     .carousel-caption {
-        top: 10px; /* Más cerca del borde superior en móviles */
+        top: 40px; /* Más cerca del top en móviles */
+        padding: 10px;
     }
 
     .carousel-caption h1 {
@@ -447,9 +441,5 @@ footer {
     .carousel-prev, .carousel-next {
         padding: 8px;
         font-size: 1.2rem;
-    }
-
-    .carousel-slide img {
-        height: 80vh; /* Reducir altura en móviles */
     }
 }
