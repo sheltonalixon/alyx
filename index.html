@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Google Fonts: Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Swiper.js CDN -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
     <div id="particles-js"></div>
@@ -33,68 +31,43 @@
 
     <main>
         <section id="home">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <!-- Carril 1: Contenido actual con imagen -->
-                    <div class="swiper-slide">
-                        <div class="carousel-content">
-                            <img src="images/home-slide-1.jpg" alt="Bienvenidos a Alyx" class="carousel-image">
-                            <h1>Bienvenidos a Alyx</h1>
-                            <p>Tu sitio web de portafolio moderno.</p>
-                            <a href="#about" class="btn">Saber más</a>
-                        </div>
-                    </div>
-                    <!-- Carril 2 -->
-                    <div class="swiper-slide">
-                        <div class="carousel-content">
-                            <img src="images/home-slide-2.jpg" alt="Proyecto Innovador" class="carousel-image">
-                            <h1>Proyectos Innovadores</h1>
-                            <p>Explora mis creaciones únicas y modernas.</p>
-                            <a href="#portfolio" class="btn">Ver Portafolio</a>
-                        </div>
-                    </div>
-                    <!-- Carril 3 -->
-                    <div class="swiper-slide">
-                        <div class="carousel-content">
-                            <img src="images/home-slide-3.jpg" alt="Comunidad Activa" class="carousel-image">
-                            <h1>Únete a la Comunidad</h1>
-                            <p>Conecta con otros creativos en Discord.</p>
-                            <a href="#community" class="btn">Unirme</a>
-                        </div>
-                    </div>
-                    <!-- Carril 4 -->
-                    <div class="swiper-slide">
-                        <div class="carousel-content">
-                            <img src="images/home-slide-4.jpg" alt="Tutoriales Exclusivos" class="carousel-image">
-                            <h1>Tutoriales Exclusivos</h1>
-                            <p>Aprende desarrollo con mis videos en YouTube.</p>
-                            <a href="https://youtube.com/@tu-canal" class="btn">Ver Canal</a>
-                        </div>
-                    </div>
-                    <!-- Carril 5 -->
-                    <div class="swiper-slide">
-                        <div class="carousel-content">
-                            <img src="images/home-slide-5.jpg" alt="Tecnología Moderna" class="carousel-image">
-                            <h1>Tecnología Moderna</h1>
-                            <p>Desarrollo con las últimas herramientas.</p>
-                            <a href="#portfolio" class="btn">Explorar</a>
-                        </div>
-                    </div>
-                    <!-- Carril 6 -->
-                    <div class="swiper-slide">
-                        <div class="carousel-content">
-                            <img src="images/home-slide-6.jpg" alt="Contáctame" class="carousel-image">
-                            <h1>Contáctame</h1>
-                            <p>¿Tienes un proyecto? Hablemos.</p>
-                            <a href="mailto:tu.email@ejemplo.com" class="btn">Contacto</a>
-                        </div>
-                    </div>
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="images/welcome.jpg" alt="Bienvenida">
+                    <h1>Bienvenidos a Alyx</h1>
+                    <p>Tu sitio web de portafolio moderno.</p>
+                    <a href="#about" class="btn">Saber más</a>
                 </div>
-                <!-- Controles de navegación -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <!-- Paginación -->
-                <div class="swiper-pagination"></div>
+                <div class="carousel-slide">
+                    <img src="images/slide2.jpg" alt="Proyecto 1">
+                    <h1>Proyecto Innovador</h1>
+                    <p>Explora nuestras soluciones tecnológicas de vanguardia.</p>
+                    <a href="#portfolio" class="btn">Ver Proyectos</a>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide3.jpg" alt="Comunidad">
+                    <h1>Únete a la Comunidad</h1>
+                    <p>Conecta con otros apasionados por la tecnología.</p>
+                    <a href="#community" class="btn">Unirme Ahora</a>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide4.jpg" alt="Desarrollo">
+                    <h1>Desarrollo Creativo</h1>
+                    <p>Creamos experiencias web únicas y personalizadas.</p>
+                    <a href="#portfolio" class="btn">Explorar</a>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide5.jpg" alt="Tecnología">
+                    <h1>Tecnología Avanzada</h1>
+                    <p>Innovamos con las últimas herramientas y tendencias.</p>
+                    <a href="#portfolio" class="btn">Descubrir</a>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slide6.jpg" alt="Contacto">
+                    <h1>Contáctanos</h1>
+                    <p>Estamos listos para colaborar en tu próximo proyecto.</p>
+                    <a href="mailto:tu.email@ejemplo.com" class="btn">Contacto</a>
+                </div>
             </div>
         </section>
 
@@ -164,7 +137,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
