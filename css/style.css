@@ -79,73 +79,75 @@ nav {
     transition: all 0.3s;
 }
 
-/* Carousel */
-.carousel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
+/* Main Sections */
+section {
+    padding: 60px 20px;
+    max-width: 1284px; /* Para las tarjetas de 627px */
+    margin: 0 auto;
+    text-align: center;
+    position: relative; /* Sobre las partículas */
+    /* Sin fondo para mostrar partículas */
 }
 
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.carousel-slide.active {
-    opacity: 1;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Home Section */
 #home {
     min-height: 100vh;
-    position: relative; /* Para posicionar el carrusel y el contenido */
+    width: 100%; /* Abarcar todo el ancho */
+    padding: 0; /* Sin padding para el carrusel */
+    overflow: hidden; /* Evitar desbordamiento */
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100vh; /* Ocupar toda la altura de la sección */
+}
+
+.swiper-slide {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.home-content {
-    position: relative;
-    z-index: 2; /* Sobre el carrusel */
+    background: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente para legibilidad */
     text-align: center;
-    padding: 20px;
-    background: rgba(10, 10, 10, 0.7); /* Fondo semi-transparente para legibilidad */
-    border-radius: 10px;
 }
 
-h1 {
+.slide-content {
+    max-width: 1284px; /* Igual que otras secciones */
+    padding: 20px;
+}
+
+.slide-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
     color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-p {
-    color: #e0e0e0; /* Texto gris claro */
+.slide-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
 }
 
+.swiper-pagination-bullet {
+    background: #fff; /* Puntos blancos */
+    opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+    background: #3498db; /* Punto activo en azul */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff; /* Flechas blancas */
+    opacity: 0.8;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #3498db; /* Flechas azules al pasar el ratón */
+}
+
+/* Botones */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -345,11 +347,16 @@ footer {
         font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
     }
 
-    .home-content {
-        padding: 15px;
+    .slide-content h1 {
+        font-size: 1.8rem; /* Títulos más pequeños en móviles */
     }
 
-    .carousel-slide img {
-        object-fit: cover;
+    .slide-content p {
+        font-size: 1rem; /* Texto más pequeño en móviles */
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none; /* Ocultar flechas en móviles para más espacio */
     }
 }
