@@ -73,12 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reproducción automática cada 5 segundos
     let autoSlide = setInterval(nextSlide, 5000);
 
-    // Pausar el carrusel al pasar el ratón
-    carouselInner.addEventListener('mouseenter', () => clearInterval(autoSlide));
-    carouselInner.addEventListener('mouseleave', () => {
-        autoSlide = setInterval(nextSlide, 5000);
-    });
-
     // Control de indicadores
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
