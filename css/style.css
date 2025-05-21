@@ -91,14 +91,11 @@ section {
 
 #home {
     min-height: 100vh;
-    width: 100vw; /* Ancho completo de la ventana */
-    margin: 0; /* Sin márgenes */
-    padding: 0; /* Sin padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Evitar barras de desplazamiento */
+    /* Sin fondo para mostrar partículas */
 }
 
 h1 {
@@ -268,11 +265,11 @@ footer {
 /* Carousel */
 .carousel {
     position: relative;
-    width: 100vw; /* Ancho completo de la ventana */
-    height: 100vh; /* Altura completa */
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    max-width: 1284px;
+    margin: 0 auto;
     overflow: hidden;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -296,8 +293,8 @@ footer {
 }
 
 .carousel-slide img {
-    width: 100vw; /* Ancho completo */
-    height: 100vh; /* Altura completa */
+    width: 100%;
+    height: 100vh;
     object-fit: cover;
     display: block;
 }
@@ -313,7 +310,6 @@ footer {
     background: rgba(10, 10, 10, 0.5); /* Fondo semitransparente */
     padding: 20px;
     border-radius: 5px;
-    max-width: 90%; /* Evitar que el texto sea demasiado ancho */
 }
 
 .carousel-caption h1 {
@@ -322,7 +318,7 @@ footer {
 }
 
 .carousel-caption p {
-    font-form: 1.2rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
