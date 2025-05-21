@@ -1,21 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar Swiper.js
-    const swiper = new Swiper('.swiper-container', {
-        loop: true, // Bucle infinito
-        autoplay: {
-            delay: 5000, // 5 segundos por slide
-            disableOnInteraction: false, // Continúa autoplay tras interacción
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        slidesPerView: 1, // Un slide a la vez
-        spaceBetween: 0, // Sin espacio entre slides
+    // Navigation toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 
     // Particles.js
@@ -37,21 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
         retina_detect: true
     });
 
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    // Carousel
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
         });
-    });
+    }
 
-    // Toggle mobile menu
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
 
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    // Iniciar el carrusel
+    showSlide(currentSlide);
+    setInterval(nextSlide, 5000); // Cambiar slide cada 5 segundos
 });
