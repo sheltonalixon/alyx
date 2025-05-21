@@ -1,9 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Navigation Toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
+    });
+
+    // Cerrar menú móvil al hacer clic en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(anchor => {
+        anchor.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Accesibilidad para teclado en el botón de navegación
+    navToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            navMenu.classList.toggle('active');
+        }
     });
 
     // Smooth scroll for navigation links
@@ -17,9 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Particles.js
+    const particleCount = window.innerWidth < 768 ? 40 : 80;
     particlesJS('particles-js', {
         particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
+            number: { value: particleCount, density: { enable: true, value_area: 800 } },
             color: { value: '#6b48ff' },
             shape: { type: 'circle' },
             opacity: { value: 0.5, random: true },
@@ -34,4 +50,48 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         retina_detect: true
     });
+
+    // Carousel
+    const carousel = document.querySelector('.carousel');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.indicator');
+    let currentIndex = 0;
+    const totalItems = carouselItems.length;
+
+    // Función para actualizar el carrusel
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    // Reproducción automática
+    function startAutoPlay() {
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }, 5000); // Cambia cada 5 segundos
+    }
+
+    // Manejo de clics en indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+    });
+
+    // Accesibilidad para teclado en indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                currentIndex = index;
+                updateCarousel();
+            }
+        });
+    });
+
+    // Iniciar carrusel
+    startAutoPlay();
 });
