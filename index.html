@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Orbitron Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="particles-js"></div>
@@ -31,71 +29,39 @@
 
     <main>
         <section id="home">
-            <div class="carousel-container">
-                <div class="carousel">
-                    <!-- Carril 1 -->
-                    <div class="carousel-item">
-                        <img src="images/slide1.jpg" alt="Proyecto 1 - Bot Reaw">
-                        <div class="carousel-content">
-                            <h2>Bot Reaw</h2>
-                            <p>Un bot de Discord con notificaciones de anime y comandos personalizados.</p>
+            <div class="carousel">
+                <div class="carousel-slides">
+                    <div class="carousel-slide active">
+                        <img src="images/slide1.jpg" alt="Proyecto destacado 1">
+                        <div class="carousel-caption">
+                            <h1>Bienvenidos a Alyx</h1>
+                            <p>Explora mi portafolio de desarrollo web moderno.</p>
+                            <a href="#about" class="btn">Saber más</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slide2.jpg" alt="Proyecto destacado 2">
+                        <div class="carousel-caption">
+                            <h1>Bot Reaw</h1>
+                            <p>Un bot de Discord con notificaciones de anime y más.</p>
                             <a href="#portfolio" class="btn">Ver Proyecto</a>
                         </div>
                     </div>
-                    <!-- Carril 2 -->
-                    <div class="carousel-item">
-                        <img src="images/slide2.jpg" alt="Proyecto 2 - Canal de YouTube">
-                        <div class="carousel-content">
-                            <h2>Canal de YouTube</h2>
-                            <p>Tutoriales y streams sobre desarrollo y tecnología.</p>
-                            <a href="#portfolio" class="btn">Ver Canal</a>
-                        </div>
-                    </div>
-                    <!-- Carril 3 -->
-                    <div class="carousel-item">
-                        <img src="images/slide3.jpg" alt="Proyecto 3 - App Web">
-                        <div class="carousel-content">
-                            <h2>App Web</h2>
-                            <p>Una aplicación web interactiva con diseño moderno.</p>
-                            <a href="#portfolio" class="btn">Ver Proyecto</a>
-                        </div>
-                    </div>
-                    <!-- Carril 4 -->
-                    <div class="carousel-item">
-                        <img src="images/slide4.jpg" alt="Proyecto 4 - Juego Online">
-                        <div class="carousel-content">
-                            <h2>Juego Online</h2>
-                            <p>Un juego interactivo basado en JavaScript.</p>
-                            <a href="#portfolio" class="btn">Ver Proyecto</a>
-                        </div>
-                    </div>
-                    <!-- Carril 5 -->
-                    <div class="carousel-item">
-                        <img src="images/slide5.jpg" alt="Proyecto 5 - Portfolio Personal">
-                        <div class="carousel-content">
-                            <h2>Portfolio Personal</h2>
-                            <p>Mi sitio web personal con diseño moderno y responsivo.</p>
-                            <a href="#portfolio" class="btn">Ver Proyecto</a>
-                        </div>
-                    </div>
-                    <!-- Carril 6 -->
-                    <div class="carousel-item">
-                        <img src="images/slide6.jpg" alt="Proyecto 6 - Comunidad Discord">
-                        <div class="carousel-content">
-                            <h2>Comunidad Discord</h2>
-                            <p>Únete a mi comunidad para compartir y aprender.</p>
-                            <a href="#community" class="btn">Unirse</a>
+                    <div class="carousel-slide">
+                        <img src="images/slide3.jpg" alt="Comunidad Alyx">
+                        <div class="carousel-caption">
+                            <h1>Únete a la Comunidad</h1>
+                            <p>Conecta conmigo en Discord y otras plataformas.</p>
+                            <a href="#community" class="btn">Unirse ahora</a>
                         </div>
                     </div>
                 </div>
-                <!-- Indicadores del carrusel -->
-                <div class="carousel-indicators">
-                    <span class="indicator active" data-slide="0" aria-label="Ir al carril 1"></span>
-                    <span class="indicator" data-slide="1" aria-label="Ir al carril 2"></span>
-                    <span class="indicator" data-slide="2" aria-label="Ir al carril 3"></span>
-                    <span class="indicator" data-slide="3" aria-label="Ir al carril 4"></span>
-                    <span class="indicator" data-slide="4" aria-label="Ir al carril 5"></span>
-                    <span class="indicator" data-slide="5" aria-label="Ir al carril 6"></span>
+                <button class="carousel-prev" aria-label="Diapositiva anterior">❮</button>
+                <button class="carousel-next" aria-label="Diapositiva siguiente">❯</button>
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" data-slide="0"></span>
+                    <span class="carousel-dot" data-slide="1"></span>
+                    <span class="carousel-dot" data-slide="2"></span>
                 </div>
             </div>
         </section>
@@ -110,7 +76,7 @@
             <div class="project-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="images/bot-reaw.jpg" alt="Bot Reaw">
+                        <img src="images/bot-reaw.jpg" alt="Captura de pantalla del proyecto Bot Reaw">
                         <div class="project-overlay">
                             <h3>Bot Reaw</h3>
                             <p>Un bot de Discord con notificaciones de anime, comandos slash y suscripciones personalizadas.</p>
@@ -141,7 +107,7 @@
                 <a href="https://twitch.tv/tu-canal" class="social-icon" title="Twitch" aria-label="Sigue mi canal de Twitch">
                     <i class="fab fa-twitch"></i>
                 </a>
-                <a href="https://youtube.com/@tu-canal" class="social-icon" title="YouTube" aria-label="Sigue mi canal de YouTube">
+                <a href="https://youtube.com/@tu-canal" class="social-icon" title="YouTube" aria-label="Visita mi canal de YouTube">
                     <i class="fab fa-youtube"></i>
                 </a>
                 <a href="https://facebook.com/tu-pagina" class="social-icon" title="Facebook" aria-label="Sigue mi página de Facebook">
@@ -165,7 +131,7 @@
         <p>Contáctame en <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
