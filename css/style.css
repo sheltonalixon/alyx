@@ -90,12 +90,15 @@ section {
 }
 
 #home {
-    padding: 0; /* Eliminar padding para que el carrusel ocupe todo */
-    margin: 0; /* Eliminar márgenes */
+    min-height: 100vh;
     width: 100vw; /* Ancho completo de la ventana */
-    min-height: calc(100vh - 52px); /* Altura completa menos el header */
-    position: relative;
-    overflow: hidden;
+    margin: 0; /* Sin márgenes */
+    padding: 0; /* Sin padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evitar barras de desplazamiento */
 }
 
 h1 {
@@ -264,11 +267,11 @@ footer {
 
 /* Carousel */
 .carousel {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100vw; /* Ancho completo de la ventana */
-    height: calc(100vh - 52px); /* Altura completa menos el header */
+    height: 100vh; /* Altura completa */
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -294,7 +297,7 @@ footer {
 
 .carousel-slide img {
     width: 100vw; /* Ancho completo */
-    height: calc(100vh - 52px); /* Altura completa menos el header */
+    height: 100vh; /* Altura completa */
     object-fit: cover;
     display: block;
 }
@@ -319,7 +322,7 @@ footer {
 }
 
 .carousel-caption p {
-    font-size: 1.2rem;
+    font-form: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
@@ -450,6 +453,6 @@ footer {
     }
 
     .carousel-slide img {
-        height: calc(100vh - 52px); /* Mantener altura completa en móviles */
+        height: 80vh; /* Reducir altura en móviles */
     }
 }
