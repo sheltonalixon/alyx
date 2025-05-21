@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, // Bucle infinito
+        autoplay: {
+            delay: 5000, // Cambia cada 5 segundos
+            disableOnInteraction: false, // No detener autoplay al interactuar
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        speed: 600, // Velocidad de transición
+    });
+
+    // Navigation toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -33,19 +52,5 @@ document.addEventListener('DOMContentLoaded', () => {
             modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
         },
         retina_detect: true
-    });
-
-    // Swiper Carousel
-    const swiper = new Swiper('.swiper-container', {
-        loop: true, // Bucle infinito
-        autoplay: {
-            delay: 5000, // 5 segundos por carril
-            disableOnInteraction: false, // No detener al interactuar
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true, // Puntos clicables
-        },
-        speed: 800, // Velocidad de transición
     });
 });
