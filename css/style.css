@@ -79,50 +79,46 @@ nav {
     transition: all 0.3s;
 }
 
-/* Home Section with Swiper Carousel */
-#home {
-    min-height: 100vh;
-    position: relative;
-    width: 100%;
-    padding: 0; /* Sin padding para que el carrusel ocupe todo el ancho */
-}
-
+/* Swiper Carousel */
 .swiper-container {
-    width: 100%;
-    height: 100vh;
+    width: 100vw; /* Abarca toda la anchura de la pantalla */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    position: relative;
 }
 
 .swiper-slide {
-    background-size: cover;
-    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-}
-
-.swiper-slide::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Capa oscura para legibilidad */
-    z-index: 1;
+    background: transparent; /* Fondo transparente para mostrar partículas */
 }
 
 .slide-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1284px; /* Igual que otras secciones */
+    width: 100%;
     padding: 20px;
 }
 
-.slide-content h1 {
-    font-family: 'Orbitron', sans-serif; /* Usar Orbitron para los títulos */
-    font-size: 3rem;
+.slide-content img {
+    width: 50%; /* Imagen ocupa la mitad del slide */
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.slide-content .text-content {
+    width: 45%; /* Texto ocupa el resto del espacio */
+    text-align: left;
+    padding-left: 20px;
+}
+
+.slide-content h2 {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -132,9 +128,25 @@ nav {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     color: #e0e0e0;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+.slide-content .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.slide-content .btn:hover {
+    background: rgba(50, 50, 50, 0.85);
+    color: #3498db;
+}
+
+/* Swiper Pagination and Navigation */
 .swiper-pagination-bullet {
     background: #fff;
     opacity: 0.7;
@@ -144,29 +156,15 @@ nav {
     background: #3498db;
 }
 
-/* Imágenes de fondo para cada carril */
-.swiper-slide:nth-child(1) {
-    background-image: url('images/slide1.jpg');
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff;
+    opacity: 0.7;
 }
 
-.swiper-slide:nth-child(2) {
-    background-image: url('images/slide2.jpg');
-}
-
-.swiper-slide:nth-child(3) {
-    background-image: url('images/slide3.jpg');
-}
-
-.swiper-slide:nth-child(4) {
-    background-image: url('images/slide4.jpg');
-}
-
-.swiper-slide:nth-child(5) {
-    background-image: url('images/slide5.jpg');
-}
-
-.swiper-slide:nth-child(6) {
-    background-image: url('images/slide6.jpg');
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    opacity: 1;
 }
 
 /* Main Sections */
@@ -177,6 +175,15 @@ section {
     text-align: center;
     position: relative; /* Sobre las partículas */
     /* Sin fondo para mostrar partículas */
+}
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Sin padding para que el carrusel abarque todo */
 }
 
 h1 {
@@ -396,11 +403,29 @@ footer {
         font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
     }
 
-    .slide-content h1 {
-        font-size: 1.8rem; /* Títulos más pequeños en móviles */
+    /* Swiper Responsive */
+    .slide-content {
+        flex-direction: column; /* Apilar elementos en móviles */
+        align-items: center;
+        text-align: center;
+    }
+
+    .slide-content img {
+        width: 100%; /* Imagen ocupa todo el ancho */
+        max-height: 200px;
+    }
+
+    .slide-content .text-content {
+        width: 100%; /* Texto ocupa todo el ancho */
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    .slide-content h2 {
+        font-size: 1.8rem;
     }
 
     .slide-content p {
-        font-size: 1rem; /* Párrafos más pequeños en móviles */
+        font-size: 1rem;
     }
 }
