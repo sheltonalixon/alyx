@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, // Hacer que el carrusel sea infinito
+        autoplay: {
+            delay: 5000, // Cambia cada 5 segundos
+            disableOnInteraction: false, // Continúa autoplay incluso si el usuario interactúa
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true, // Permite hacer clic en los puntos
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        speed: 800, // Transición suave de 800ms
+    });
+
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -34,17 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         retina_detect: true
     });
-
-    // Carousel Auto-Play
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    let currentItem = 0;
-
-    function showNextItem() {
-        carouselItems[currentItem].classList.remove('active');
-        currentItem = (currentItem + 1) % carouselItems.length;
-        carouselItems[currentItem].classList.add('active');
-    }
-
-    // Cambiar cada 5 segundos
-    setInterval(showNextItem, 5000);
 });
