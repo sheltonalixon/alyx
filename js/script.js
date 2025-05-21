@@ -1,20 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menú de navegación móvil
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
+    // Toggle del menú móvil
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
     });
 
-    // Soporte para teclado en el botón de navegación
-    navToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            navMenu.classList.toggle('active');
-        }
-    });
-
-    // Cerrar menú móvil al hacer clic en un enlace
+    // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.nav-menu a').forEach(anchor => {
         anchor.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -31,62 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Carousel automático
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    const indicators = document.querySelectorAll('.carousel-indicators button');
-    let currentIndex = 0;
-    const intervalTime = 5000; // Cambia cada 5 segundos
-
-    function showSlide(index) {
-        carouselItems.forEach((item, i) => {
-            item.classList.remove('active');
-            indicators[i].classList.remove('active');
-            if (i === index) {
-                item.classList.add('active');
-                indicators[i].classList.add('active');
-            }
-        });
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % carouselItems.length;
-        showSlide(currentIndex);
-    }
-
-    // Iniciar carrusel automático
-    if (carouselItems.length > 0) {
-        showSlide(currentIndex);
-        const carouselInterval = setInterval(nextSlide, intervalTime);
-
-        // Control manual con indicadores
-        indicators.forEach(button => {
-            button.addEventListener('click', () => {
-                clearInterval(carouselInterval);
-                currentIndex = parseInt(button.getAttribute('data-slide-to'));
-                showSlide(currentIndex);
-                setTimeout(() => {
-                    setInterval(nextSlide, intervalTime);
-                }, intervalTime);
-            });
-
-            // Soporte para teclado en indicadores
-            button.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    clearInterval(carouselInterval);
-                    currentIndex = parseInt(button.getAttribute('data-slide-to'));
-                    showSlide(currentIndex);
-                    setTimeout(() => {
-                        setInterval(nextSlide, intervalTime);
-                    }, intervalTime);
-                }
-            });
-        });
-    }
+    // Inicialización de Swiper.js
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, // Permite que el carrusel sea infinito
+        autoplay: {
+            delay: 5000, // Cambia cada 5 segundos
+            disableOnInteraction: false, // Continúa el autoplay después de interacciones
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        effect: 'fade', // Efecto de transición suave
+        fadeEffect: {
+            crossFade: true,
+        },
+    });
 
     // Particles.js
     particlesJS('particles-js', {
         particles: {
-            number: { value: window.innerWidth < 768 ? 40 : 80, density: { enable: true, value_area: 800 } },
+            number: { value: window.innerWidth > 768 ? 80 : 40, density: { enable: true, value_area: 800 } },
             color: { value: '#6b48ff' },
             shape: { type: 'circle' },
             opacity: { value: 0.5, random: true },
