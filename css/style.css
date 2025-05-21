@@ -79,6 +79,85 @@ nav {
     transition: all 0.3s;
 }
 
+/* Home Section with Swiper Carousel */
+#home {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    padding: 0; /* Sin padding para que el carrusel ocupe todo el ancho */
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100vh; /* Ocupar toda la altura de la sección */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content {
+    text-align: center;
+    max-width: 1284px; /* Igual que otras secciones para consistencia */
+    width: 100%;
+    padding: 0 20px;
+}
+
+.slide-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.slide-content p {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.slide-content .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.slide-content .btn:hover {
+    background: rgba(50, 50, 50, 0.85);
+    color: #3498db;
+}
+
+/* Swiper Navigation */
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: #3498db;
+    opacity: 1;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff;
+    opacity: 0.7;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    opacity: 1;
+}
+
 /* Main Sections */
 section {
     padding: 60px 20px;
@@ -87,59 +166,6 @@ section {
     text-align: center;
     position: relative; /* Sobre las partículas */
     /* Sin fondo para mostrar partículas */
-}
-
-#home {
-    min-height: 100vh;
-    position: relative; /* Para posicionar el carrusel y el contenido */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Evitar desbordamiento del carrusel */
-}
-
-.home-content {
-    position: relative;
-    z-index: 2; /* Contenido sobre el carrusel */
-    text-align: center;
-}
-
-/* Carousel Styles */
-.carousel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Ocupa todo el ancho de la pantalla */
-    height: 100%; /* Ocupa toda la altura de la sección */
-    z-index: 1; /* Detrás del contenido, encima de las partículas */
-}
-
-.carousel-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out; /* Transición suave */
-}
-
-.carousel-item.active {
-    opacity: 1; /* Mostrar solo el item activo */
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cubrir todo el contenedor */
-    display: block;
 }
 
 h1 {
@@ -359,7 +385,16 @@ footer {
         font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
     }
 
-    .home-content {
-        padding: 20px; /* Añadir padding para mejor legibilidad en móviles */
+    .slide-content h1 {
+        font-size: 2rem;
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+    }
+
+    .slide-content .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 }
