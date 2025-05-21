@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Google Fonts: Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Swiper.js CSS CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
     <div id="particles-js"></div>
@@ -31,25 +33,62 @@
 
     <main>
         <section id="home">
-            <!-- Carrusel -->
-            <div class="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="linda3.jpeg" alt="Slide 1">
+            <!-- Swiper Carousel -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Carril 1: Contenido original -->
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <h1>Bienvenidos a Alyx</h1>
+                            <p>Tu sitio web de portafolio moderno.</p>
+                            <a href="#about" class="btn">Saber más</a>
+                        </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="images/slide2.jpg" alt="Slide 2">
+                    <!-- Carril 2: Placeholder -->
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <h1>Explora mis proyectos</h1>
+                            <p>Descubre los proyectos innovadores en los que he trabajado.</p>
+                            <a href="#portfolio" class="btn">Ver Portafolio</a>
+                        </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="linda3.jpeg" alt="Slide 3">
+                    <!-- Carril 3: Placeholder -->
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <h1>Únete a la comunidad</h1>
+                            <p>Conecta con otros apasionados por la tecnología en Discord.</p>
+                            <a href="#community" class="btn">Unirme</a>
+                        </div>
+                    </div>
+                    <!-- Carril 4: Placeholder -->
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <h1>Aprende conmigo</h1>
+                            <p>Mira mis tutoriales y streams en YouTube y Twitch.</p>
+                            <a href="#community" class="btn">Ver Canales</a>
+                        </div>
+                    </div>
+                    <!-- Carril 5: Placeholder -->
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <h1>Contáctame</h1>
+                            <p>¿Tienes una idea? Envíame un mensaje para colaborar.</p>
+                            <a href="mailto:tu.email@ejemplo.com" class="btn">Contactar</a>
+                        </div>
+                    </div>
+                    <!-- Carril 6: Placeholder -->
+                    <div class="swiper-slide">
+                        <div class="slide-content">
+                            <h1>Sigue mis redes</h1>
+                            <p>Entérate de las últimas novedades en mis redes sociales.</p>
+                            <a href="#community" class="btn">Seguir</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Contenido sobre el carrusel -->
-            <div class="home-content">
-                <h1>Bienvenidos a Alyx</h1>
-                <p>Tu sitio web de portafolio moderno.</p>
-                <a href="#about" class="btn">Saber más</a>
+                <!-- Navegación del carrusel -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </section>
 
@@ -118,6 +157,8 @@
         <p>Contáctame en <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
     </footer>
 
+    <!-- Swiper.js JS CDN -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/script.js"></script>
 </body>
