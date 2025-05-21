@@ -5,13 +5,6 @@
     box-sizing: border-box;
 }
 
-/* CSS Variables for Consistency */
-:root {
-    --primary-hover: #3498db;
-    --background-dark: rgba(10, 10, 10, 0.85);
-    --background-hover: rgba(50, 50, 50, 0.85);
-}
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -29,7 +22,7 @@ body {
 
 /* Header and Navigation */
 header {
-    background: var(--background-dark);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(5px);
     color: #fff;
     padding: 0.9rem 0;
@@ -69,7 +62,7 @@ nav {
 }
 
 .nav-menu a:hover {
-    color: var(--primary-hover);
+    color: #3498db;
 }
 
 .nav-toggle {
@@ -95,91 +88,109 @@ section {
     position: relative;
 }
 
-/* Carousel Styles */
-.carousel {
-    position: relative;
-    width: 100%;
-    max-width: 1284px;
-    margin: 0 auto;
-    overflow: hidden;
+#home {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Swiper Carousel */
+.swiper-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 70vh; /* Ajusta según necesidades */
+}
+
+.swiper-slide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para legibilidad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.slide-content h2 {
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    max-width: 80%;
+    color: #e0e0e0;
+}
+
+.slide-content .btn {
+    padding: 10px 20px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.slide-content .btn:hover {
+    background: rgba(50, 50, 50, 0.85);
+    color: #3498db;
+}
+
+/* Swiper Navigation and Pagination */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff;
+    background: rgba(10, 10, 10, 0.85);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.carousel-inner {
-    display: flex;
-    width: 100%;
-    transition: transform 0.5s ease;
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 20px;
 }
 
-.carousel-item {
-    flex: 0 0 100%;
-    position: relative;
-    display: none;
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.7;
 }
 
-.carousel-item.active {
-    display: block;
+.swiper-pagination-bullet-active {
+    background: #3498db;
 }
 
-.carousel-item img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.5);
-}
-
-.carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.carousel-caption h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.carousel-caption p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: #e0e0e0;
-}
-
-.carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.carousel-indicators button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.carousel-indicators button.active {
-    background: var(--primary-hover);
-}
-
-/* Other Sections */
-#home {
-    min-height: 100vh;
-}
-
+/* Resto del CSS sin cambios */
 h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -201,7 +212,7 @@ p {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background: var(--background-dark);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(5px);
     color: #fff;
     text-decoration: none;
@@ -211,8 +222,8 @@ p {
 }
 
 .btn:hover {
-    background: var(--background-hover);
-    color: var(--primary-hover);
+    background: rgba(50, 50, 50, 0.85);
+    color: #3498db;
 }
 
 /* Projects Grid */
@@ -225,8 +236,7 @@ p {
 }
 
 .project-card {
-    max-width: 627px;
-    width: 100%;
+    width: 627px;
     height: 250px;
     background: transparent;
     border-radius: 5px;
@@ -234,7 +244,6 @@ p {
     transition: transform 0.3s;
     overflow: hidden;
     flex-shrink: 0;
-    will-change: transform;
 }
 
 .project-card:hover {
@@ -254,6 +263,7 @@ p {
     border-radius: 5px;
     display: block;
     opacity: 1;
+    filter: none;
 }
 
 .project-overlay {
@@ -275,7 +285,7 @@ p {
 }
 
 .project-card:hover .project-overlay {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .project-overlay h3 {
@@ -298,18 +308,17 @@ p {
 .project-overlay .btn.small {
     padding: 8px 16px;
     font-size: 0.9rem;
-    background: var(--background-dark);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(5px);
     color: #fff;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .project-overlay .btn.small:hover {
-    background: var(--background-hover);
-    color: var(--primary-hover);
+    background: rgba(50, 50, 50, 0.85);
+    color: #3498db;
 }
 
-/* Small Button Variant */
 .btn.small {
     padding: 8px 16px;
     font-size: 0.9rem;
@@ -331,25 +340,18 @@ p {
 }
 
 .social-icon:hover {
-    color: var(--primary-hover);
+    color: #3498db;
     transform: scale(1.2);
 }
 
 /* Footer */
 footer {
-    background: var(--background-dark);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(5px);
     color: #fff;
     text-align: center;
     padding: 20px 0;
     position: relative;
-}
-
-/* Fallback for browsers without backdrop-filter support */
-@supports not (backdrop-filter: blur(5px)) {
-    header, footer, .btn {
-        background: rgba(10, 10, 10, 0.9);
-    }
 }
 
 /* Responsive Design */
@@ -361,8 +363,7 @@ footer {
         position: absolute;
         top: 52px;
         left: 0;
-        background: var(--background-dark);
-        z-index: 99;
+        background: rgba(10, 10, 10, 0.9);
     }
 
     .nav-menu.active {
@@ -381,27 +382,13 @@ footer {
         font-size: 1.5rem;
     }
 
-    .carousel-caption h1 {
-        font-size: 2rem;
-    }
-
-    .carousel-caption p {
-        font-size: 1rem;
-    }
-
-    .carousel-indicators button {
-        width: 10px;
-        height: 10px;
-    }
-
     .project-grid {
         flex-wrap: wrap;
         gap: 20px;
     }
 
     .project-card {
-        width: 100%;
-        max-width: 400px;
+        width: 300px;
         height: 200px;
     }
 
@@ -424,5 +411,30 @@ footer {
 
     .social-icon {
         font-size: 1.5rem;
+    }
+
+    /* Ajustes para el carrusel en móviles */
+    .swiper-container {
+        height: 50vh;
+    }
+
+    .slide-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 30px;
+        height: 30px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 16px;
     }
 }
