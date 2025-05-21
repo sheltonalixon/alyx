@@ -5,10 +5,16 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-hover: #3498db;
+    --background-dark: rgba(10, 10, 10, 0.85);
+    --background-hover: rgba(50, 50, 50, 0.85);
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #fff; /* Texto blanco para legibilidad */
+    color: #fff;
 }
 
 /* Particles.js */
@@ -16,14 +22,14 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Fondo detrás del contenido */
-    background: #0a0a0a; /* Fondo oscuro para partículas */
+    z-index: -1;
+    background: #0a0a0a;
 }
 
 /* Header and Navigation */
 header {
-    background: rgba(10, 10, 10, 0.85); /* Negro que combina con el fondo */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    background: var(--background-dark);
+    backdrop-filter: blur(5px);
     color: #fff;
     padding: 0.9rem 0;
     position: sticky;
@@ -35,7 +41,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1284px; /* Para las tarjetas de 627px */
+    max-width: 1284px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -62,7 +68,7 @@ nav {
 }
 
 .nav-menu a:hover {
-    color: #3498db;
+    color: var(--primary-hover);
 }
 
 .nav-toggle {
@@ -82,11 +88,10 @@ nav {
 /* Main Sections */
 section {
     padding: 60px 20px;
-    max-width: 1284px; /* Para las tarjetas de 627px */
+    max-width: 1284px;
     margin: 0 auto;
     text-align: center;
-    position: relative; /* Sobre las partículas */
-    /* Sin fondo para mostrar partículas */
+    position: relative;
 }
 
 #home {
@@ -95,14 +100,13 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Sin fondo para mostrar partículas */
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
@@ -113,24 +117,24 @@ h2 {
 }
 
 p {
-    color: #e0e0e0; /* Texto gris claro */
+    color: #e0e0e0;
 }
 
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header y footer */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    color: #fff; /* Texto blanco */
+    background: var(--background-dark);
+    backdrop-filter: blur(5px);
+    color: #fff;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 1rem;
-    transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
-    background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
-    color: #3498db; /* Texto azul claro en hover */
+    background: var(--background-hover);
+    color: var(--primary-hover);
 }
 
 /* Projects Grid */
@@ -145,12 +149,13 @@ p {
 .project-card {
     width: 627px;
     height: 250px;
-    background: transparent; /* Sin fondo para mostrar imagen nítida */
+    background: transparent;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     overflow: hidden;
     flex-shrink: 0;
+    will-change: transform;
 }
 
 .project-card:hover {
@@ -169,8 +174,8 @@ p {
     object-fit: cover;
     border-radius: 5px;
     display: block;
-    opacity: 1; /* Imagen nítida */
-    filter: none; /* Sin filtros que opaquen */
+    opacity: 1;
+    filter: none;
 }
 
 .project-overlay {
@@ -179,28 +184,28 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent; /* Transparente por defecto */
+    background: transparent;
     color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Alinear elementos a la izquierda */
+    align-items: flex-start;
     padding: 20px;
-    text-align: left; /* Alinear texto a la izquierda */
-    opacity: 1; /* Texto siempre visible */
-    transition: background 0.3s ease; /* Transición suave para fondo */
+    text-align: left;
+    opacity: 1;
+    transition: background 0.3s ease;
 }
 
 .project-card:hover .project-overlay {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semi-opaco al pasar el ratón */
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .project-overlay h3 {
-    font-family: 'Orbitron', sans-serif; /* Fuente Orbitron para los títulos */
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.8rem;
     margin-bottom: 10px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
-    text-align: left; /* Asegurar que el título esté alineado a la izquierda */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-align: left;
 }
 
 .project-overlay p {
@@ -209,21 +214,21 @@ p {
     max-width: 80%;
     color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    text-align: left; /* Alinear descripción a la izquierda */
+    text-align: left;
 }
 
 .project-overlay .btn.small {
     padding: 8px 16px;
     font-size: 0.9rem;
-    background: rgba(10, 10, 10, 0.85); /* Mismo fondo que header y footer */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    color: #fff; /* Texto blanco */
-    transition: background 0.3s ease, color 0.3s ease; /* Transición para fondo y texto */
+    background: var(--background-dark);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .project-overlay .btn.small:hover {
-    background: rgba(50, 50, 50, 0.85); /* Gris oscuro en hover */
-    color: #3498db; /* Texto azul claro en hover */
+    background: var(--background-hover);
+    color: var(--primary-hover);
 }
 
 /* Small Button Variant */
@@ -241,25 +246,124 @@ p {
 }
 
 .social-icon {
-    font-size: 2rem; /* Tamaño de los iconos */
-    color: #fff; /* Color blanco para los iconos */
+    font-size: 2rem;
+    color: #fff;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icon:hover {
-    color: #3498db; /* Color azul al pasar el ratón */
-    transform: scale(1.2); /* Efecto de aumento al pasar el ratón */
+    color: var(--primary-hover);
+    transform: scale(1.2);
 }
 
 /* Footer */
 footer {
-    background: rgba(10, 10, 10, 0.85); /* Negro que combina con el fondo */
+    background: var(--background-dark);
     backdrop-filter: blur(5px);
     color: #fff;
     text-align: center;
     padding: 20px 0;
     position: relative;
+}
+
+/* Carousel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1284px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.carousel-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    background: var(--background-dark);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+.carousel-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+.carousel-content .btn {
+    background: var(--background-dark);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.carousel-content .btn:hover {
+    background: var(--background-hover);
+    color: var(--primary-hover);
+}
+
+/* Indicadores */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.indicator.active {
+    opacity: 1;
 }
 
 /* Responsive Design */
@@ -271,7 +375,8 @@ footer {
         position: absolute;
         top: 52px;
         left: 0;
-        background: rgba(10, 10, 10, 0.9); /* Negro para el menú móvil */
+        background: var(--background-dark);
+        z-index: 99;
     }
 
     .nav-menu.active {
@@ -296,28 +401,58 @@ footer {
     }
 
     .project-card {
-        width: 300px;
+        width: 100%;
+        max-width: 400px;
         height: 200px;
     }
 
     .project-overlay {
-        align-items: flex-start; /* Mantener alineación izquierda en móviles */
-        text-align: left; /* Mantener texto alineado a la izquierda */
+        align-items: flex-start;
+        text-align: left;
     }
 
     .project-overlay h3 {
-        font-family: 'Orbitron', sans-serif; /* Mantener Orbitron en móviles */
+        font-family: 'Orbitron', sans-serif;
         font-size: 1.4rem;
-        text-align: left; /* Asegurar alineación izquierda */
+        text-align: left;
     }
 
     .project-overlay p {
         font-size: 0.9rem;
         max-width: 90%;
-        text-align: left; /* Alinear descripción a la izquierda */
+        text-align: left;
     }
 
     .social-icon {
-        font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
+        font-size: 1.5rem;
+    }
+
+    .carousel-content {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .carousel-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .carousel-content p {
+        font-size: 1rem;
+    }
+
+    .carousel-content .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-item {
+        height: 80vh;
+    }
+}
+
+/* Fallback para navegadores sin soporte de backdrop-filter */
+@supports not (backdrop-filter: blur(5px)) {
+    header, footer, .btn, .carousel-content, .project-overlay .btn.small {
+        background: rgba(10, 10, 10, 0.9);
     }
 }
