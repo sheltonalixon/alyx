@@ -306,10 +306,9 @@ footer {
     transform: translateX(-50%);
     text-align: center;
     color: #fff;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    background: rgba(10, 10, 10, 0.5); /* Fondo semitransparente */
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.7); /* Sombra más fuerte para legibilidad */
     padding: 20px;
-    border-radius: 5px;
+    background: none; /* Sin fondo para integración con la imagen */
 }
 
 .carousel-caption h1 {
