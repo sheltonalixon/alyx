@@ -91,11 +91,10 @@ section {
 
 #home {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Sin fondo para mostrar partículas */
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar padding */
+    position: relative;
+    top: 0; /* Asegurar que esté en la parte superior */
 }
 
 h1 {
@@ -267,12 +266,11 @@ footer {
     position: relative;
     width: 100%;
     max-width: 1284px;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block; /* Cambiado de flex a block para alinear al top */
 }
 
 .carousel-slides {
@@ -301,7 +299,7 @@ footer {
 
 .carousel-caption {
     position: absolute;
-    bottom: 20%;
+    top: 20px; /* Alinear cerca del borde superior */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -432,6 +430,10 @@ footer {
 
     .social-icon {
         font-size: 1.5rem; /* Tamaño de iconos más pequeño en móviles */
+    }
+
+    .carousel-caption {
+        top: 10px; /* Más cerca del borde superior en móviles */
     }
 
     .carousel-caption h1 {
