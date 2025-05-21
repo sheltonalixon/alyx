@@ -28,7 +28,7 @@ header {
     padding: 0.9rem 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 100; /* Encima del carrusel */
 }
 
 nav {
@@ -93,6 +93,7 @@ section {
     min-height: 100vh;
     position: relative;
     overflow: hidden; /* Evitar desbordamiento del carrusel */
+    padding: 0; /* Eliminar padding para ajustar al top */
 }
 
 h1 {
@@ -263,8 +264,12 @@ footer {
 .carousel {
     width: 100vw;
     height: 100vh;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centrar horizontalmente */
     overflow: hidden;
+    z-index: 1; /* Debajo del header */
 }
 
 .carousel-slide {
