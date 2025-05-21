@@ -90,12 +90,12 @@ section {
 }
 
 #home {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Sin fondo para mostrar partículas */
+    padding: 0; /* Eliminar padding para que el carrusel ocupe todo */
+    margin: 0; /* Eliminar márgenes */
+    width: 100vw; /* Ancho completo de la ventana */
+    min-height: calc(100vh - 52px); /* Altura completa menos el header */
+    position: relative;
+    overflow: hidden;
 }
 
 h1 {
@@ -264,12 +264,12 @@ footer {
 
 /* Carousel */
 .carousel {
-    position: relative;
-    width: 100%;
-    max-width: 1284px;
-    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ancho completo de la ventana */
+    height: calc(100vh - 52px); /* Altura completa menos el header */
     overflow: hidden;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -293,8 +293,8 @@ footer {
 }
 
 .carousel-slide img {
-    width: 100%;
-    height: 100vh;
+    width: 100vw; /* Ancho completo */
+    height: calc(100vh - 52px); /* Altura completa menos el header */
     object-fit: cover;
     display: block;
 }
@@ -310,6 +310,7 @@ footer {
     background: rgba(10, 10, 10, 0.5); /* Fondo semitransparente */
     padding: 20px;
     border-radius: 5px;
+    max-width: 90%; /* Evitar que el texto sea demasiado ancho */
 }
 
 .carousel-caption h1 {
@@ -449,6 +450,6 @@ footer {
     }
 
     .carousel-slide img {
-        height: 80vh; /* Reducir altura en móviles */
+        height: calc(100vh - 52px); /* Mantener altura completa en móviles */
     }
 }
