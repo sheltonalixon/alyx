@@ -1,9 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Menú de navegación móvil
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
+    });
+
+    // Soporte para teclado en el botón de navegación
+    navToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            navMenu.classList.toggle('active');
+        }
     });
 
     // Cerrar menú móvil al hacer clic en un enlace
@@ -13,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Smooth scroll for navigation links
+    // Smooth scroll para enlaces de navegación
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -22,6 +30,58 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // Carousel automático
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.carousel-indicators button');
+    let currentIndex = 0;
+    const intervalTime = 5000; // Cambia cada 5 segundos
+
+    function showSlide(index) {
+        carouselItems.forEach((item, i) => {
+            item.classList.remove('active');
+            indicators[i].classList.remove('active');
+            if (i === index) {
+                item.classList.add('active');
+                indicators[i].classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % carouselItems.length;
+        showSlide(currentIndex);
+    }
+
+    // Iniciar carrusel automático
+    if (carouselItems.length > 0) {
+        showSlide(currentIndex);
+        const carouselInterval = setInterval(nextSlide, intervalTime);
+
+        // Control manual con indicadores
+        indicators.forEach(button => {
+            button.addEventListener('click', () => {
+                clearInterval(carouselInterval);
+                currentIndex = parseInt(button.getAttribute('data-slide-to'));
+                showSlide(currentIndex);
+                setTimeout(() => {
+                    setInterval(nextSlide, intervalTime);
+                }, intervalTime);
+            });
+
+            // Soporte para teclado en indicadores
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    clearInterval(carouselInterval);
+                    currentIndex = parseInt(button.getAttribute('data-slide-to'));
+                    showSlide(currentIndex);
+                    setTimeout(() => {
+                        setInterval(nextSlide, intervalTime);
+                    }, intervalTime);
+                }
+            });
+        });
+    }
 
     // Particles.js
     particlesJS('particles-js', {
@@ -40,81 +100,5 @@ document.addEventListener('DOMContentLoaded', () => {
             modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
         },
         retina_detect: true
-    });
-
-    // Carousel
-    const carouselSlides = document.querySelectorAll('.carousel-slide');
-    const carouselDots = document.querySelectorAll('.carousel-dot');
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
-    let currentSlide = 0;
-    const slideInterval = 5000; // Cambia cada 5 segundos
-
-    function showSlide(index) {
-        carouselSlides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-        carouselDots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-        currentSlide = index;
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % carouselSlides.length;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length;
-        showSlide(currentSlide);
-    }
-
-    // Reproducción automática
-    let autoSlide = setInterval(nextSlide, slideInterval);
-
-    // Botones de navegación
-    prevButton.addEventListener('click', () => {
-        clearInterval(autoSlide);
-        prevSlide();
-        autoSlide = setInterval(nextSlide, slideInterval); // Reinicia el intervalo
-    });
-
-    nextButton.addEventListener('click', () => {
-        clearInterval(autoSlide);
-        nextSlide();
-        autoSlide = setInterval(nextSlide, slideInterval); // Reinicia el intervalo
-    });
-
-    // Puntos de navegación
-    carouselDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            clearInterval(autoSlide);
-            showSlide(index);
-            autoSlide = setInterval(nextSlide, slideInterval); // Reinicia el intervalo
-        });
-    });
-
-    // Accesibilidad para teclado
-    prevButton.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            prevSlide();
-        }
-    });
-
-    nextButton.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            nextSlide();
-        }
-    });
-
-    // Accesibilidad para teclado en navToggle
-    navToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            navMenu.classList.toggle('active');
-        }
     });
 });
