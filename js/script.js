@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigation toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         retina_detect: true
     });
 
-    // Carousel
+    // Carousel Auto-Play
     const slides = document.querySelectorAll('.carousel-slide');
     let currentSlide = 0;
 
@@ -51,7 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide);
     }
 
-    // Iniciar el carrusel
+    // Mostrar el primer carril al cargar
     showSlide(currentSlide);
-    setInterval(nextSlide, 5000); // Cambiar slide cada 5 segundos
+
+    // Cambiar carril cada 5 segundos
+    setInterval(nextSlide, 5000);
 });
