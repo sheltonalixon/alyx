@@ -89,25 +89,39 @@ nav {
 
 .swiper-container {
     width: 100%;
-    height: 100vh; /* Ocupar toda la altura de la sección */
+    height: 100vh;
 }
 
 .swiper-slide {
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.swiper-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Capa oscura para legibilidad */
+    z-index: 1;
 }
 
 .slide-content {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    max-width: 1284px; /* Igual que otras secciones para consistencia */
-    width: 100%;
-    padding: 0 20px;
+    max-width: 80%;
+    padding: 20px;
 }
 
 .slide-content h1 {
+    font-family: 'Orbitron', sans-serif; /* Usar Orbitron para los títulos */
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #fff;
@@ -115,47 +129,44 @@ nav {
 }
 
 .slide-content p {
-    color: #e0e0e0;
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.slide-content .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(5px);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.slide-content .btn:hover {
-    background: rgba(50, 50, 50, 0.85);
-    color: #3498db;
-}
-
-/* Swiper Navigation */
 .swiper-pagination-bullet {
     background: #fff;
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .swiper-pagination-bullet-active {
     background: #3498db;
-    opacity: 1;
 }
 
-.swiper-button-prev,
-.swiper-button-next {
-    color: #fff;
-    opacity: 0.7;
+/* Imágenes de fondo para cada carril */
+.swiper-slide:nth-child(1) {
+    background-image: url('images/slide1.jpg');
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    opacity: 1;
+.swiper-slide:nth-child(2) {
+    background-image: url('images/slide2.jpg');
+}
+
+.swiper-slide:nth-child(3) {
+    background-image: url('images/slide3.jpg');
+}
+
+.swiper-slide:nth-child(4) {
+    background-image: url('images/slide4.jpg');
+}
+
+.swiper-slide:nth-child(5) {
+    background-image: url('images/slide5.jpg');
+}
+
+.swiper-slide:nth-child(6) {
+    background-image: url('images/slide6.jpg');
 }
 
 /* Main Sections */
@@ -386,15 +397,10 @@ footer {
     }
 
     .slide-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem; /* Títulos más pequeños en móviles */
     }
 
     .slide-content p {
-        font-size: 1rem;
-    }
-
-    .slide-content .btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
+        font-size: 1rem; /* Párrafos más pequeños en móviles */
     }
 }
