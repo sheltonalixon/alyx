@@ -1,27 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar Swiper.js
-    const swiper = new Swiper('.swiper-container', {
-        loop: true, // Repetir el carrusel en bucle
-        autoplay: {
-            delay: 5000, // Cambiar diapositiva cada 5 segundos
-            disableOnInteraction: false, // Continuar autoplay incluso al interactuar
-        },
-        pagination: {
-            el: '.swiper-pagination', // Puntos de paginación
-            clickable: true, // Hacer los puntos clicables
-        },
-        navigation: {
-            nextEl: '.swiper-button-next', // Botón siguiente
-            prevEl: '.swiper-button-prev', // Botón anterior
-        },
-        speed: 800, // Velocidad de la transición (en milisegundos)
-        effect: 'fade', // Efecto de transición suave
-        fadeEffect: {
-            crossFade: true // Suavizar la transición entre diapositivas
-        }
-    });
-
-    // Menú móvil
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -29,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.toggle('active');
     });
 
-    // Desplazamiento suave para enlaces de navegación
+    // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -57,4 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         retina_detect: true
     });
+
+    // Carousel Auto-Play
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    let currentItem = 0;
+
+    function showNextItem() {
+        carouselItems[currentItem].classList.remove('active');
+        currentItem = (currentItem + 1) % carouselItems.length;
+        carouselItems[currentItem].classList.add('active');
+    }
+
+    // Cambiar cada 5 segundos
+    setInterval(showNextItem, 5000);
 });
