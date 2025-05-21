@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigation toggle
+    // Inicializar Swiper.js
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, // Repetir el carrusel en bucle
+        autoplay: {
+            delay: 5000, // Cambiar diapositiva cada 5 segundos
+            disableOnInteraction: false, // Continuar autoplay incluso al interactuar
+        },
+        pagination: {
+            el: '.swiper-pagination', // Puntos de paginación
+            clickable: true, // Hacer los puntos clicables
+        },
+        navigation: {
+            nextEl: '.swiper-button-next', // Botón siguiente
+            prevEl: '.swiper-button-prev', // Botón anterior
+        },
+        speed: 800, // Velocidad de la transición (en milisegundos)
+        effect: 'fade', // Efecto de transición suave
+        fadeEffect: {
+            crossFade: true // Suavizar la transición entre diapositivas
+        }
+    });
+
+    // Menú móvil
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -7,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.toggle('active');
     });
 
-    // Smooth scroll for navigation links
+    // Desplazamiento suave para enlaces de navegación
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -35,25 +57,4 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         retina_detect: true
     });
-
-    // Carousel
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Mostrar la primera diapositiva
-    showSlide(currentSlide);
-
-    // Cambiar diapositiva cada 5 segundos
-    setInterval(nextSlide, 5000);
 });
