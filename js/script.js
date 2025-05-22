@@ -39,6 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeEffect: {
             crossFade: true,
         },
+        // Evitar que el carrusel interfiera con el scroll
+        preventInteractionOnTransition: true, // Evitar interacciones durante transiciones
+        on: {
+            slideChange: () => {
+                // Mantener el scroll actual de la página
+                const currentScroll = window.scrollY;
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: currentScroll,
+                        behavior: 'auto'
+                    });
+                }, 0);
+            }
+        }
     });
 
     // Particles.js
