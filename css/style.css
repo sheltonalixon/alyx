@@ -91,21 +91,21 @@ section {
 }
 
 #home {
-    padding: 0; /* Sin padding para maximizar el ancho */
-    min-height: calc(100vh - 52px); /* Restar altura del header */
-    width: 100vw; /* Asegurar ancho completo */
+    padding: 0;
+    min-height: calc(100vh - 52px);
+    width: 100vw; /* Asegurar que la sección ocupe todo el ancho */
+    max-width: none; /* Anular max-width heredado */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 0; /* Eliminar cualquier margen */
 }
 
 /* Swiper Carousel */
 .swiper-container {
     width: 100vw; /* Abarcar todo el ancho de la ventana */
     height: calc(100vh - 52px);
-    margin: 0; /* Eliminar márgenes */
+    margin: 0; /* Eliminar cualquier margen */
 }
 
 .swiper-slide {
@@ -419,7 +419,6 @@ footer {
     .swiper-container {
         width: 100vw; /* Mantener ancho completo */
         height: calc(100vh - 52px);
-        margin: 0;
     }
 
     .slide-content h2 {
