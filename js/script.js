@@ -31,10 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 5000, // Cambia cada 5 segundos
             disableOnInteraction: false, // Continúa el autoplay después de interacciones
         },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
