@@ -30,7 +30,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    width: 100%; /* Asegurar que el header no cause desbordamiento */
+    width: 100%;
 }
 
 nav {
@@ -91,20 +91,21 @@ section {
 }
 
 #home {
-    padding: 0;
-    min-height: calc(100vh - 52px);
+    padding: 0; /* Sin padding para maximizar el ancho */
+    min-height: calc(100vh - 52px); /* Restar altura del header */
+    width: 100vw; /* Asegurar ancho completo */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100%; /* Asegurar que la sección no cause desbordamiento */
+    margin: 0; /* Eliminar cualquier margen */
 }
 
 /* Swiper Carousel */
 .swiper-container {
-    width: 100%; /* Cambiar de 100vw a 100% para evitar desbordamiento */
+    width: 100vw; /* Abarcar todo el ancho de la ventana */
     height: calc(100vh - 52px);
-    margin-top: 0;
+    margin: 0; /* Eliminar márgenes */
 }
 
 .swiper-slide {
@@ -352,7 +353,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     position: relative;
-    width: 100%; /* Asegurar que el footer no cause desbordamiento */
+    width: 100%;
 }
 
 /* Responsive Design */
@@ -416,8 +417,9 @@ footer {
 
     /* Ajustes para el carrusel en móviles */
     .swiper-container {
-        width: 100%; /* Mantener ancho completo sin desbordamiento */
+        width: 100vw; /* Mantener ancho completo */
         height: calc(100vh - 52px);
+        margin: 0;
     }
 
     .slide-content h2 {
