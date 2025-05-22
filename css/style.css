@@ -10,7 +10,6 @@ body {
     line-height: 1.6;
     color: #fff;
     overflow-x: hidden; /* Evitar barra de desplazamiento horizontal */
-    margin: 0; /* Asegurar que no haya márgenes en el body */
 }
 
 /* Particles.js */
@@ -31,7 +30,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    width: 100%; /* Asegurar que el header no cause desborde */
+    width: 100%; /* Asegurar que el header no cause desbordamiento */
 }
 
 nav {
@@ -93,20 +92,19 @@ section {
 
 #home {
     padding: 0;
-    margin: 0; /* Eliminar cualquier margen */
     min-height: calc(100vh - 52px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100%; /* Asegurar que la sección no cause desborde */
+    width: 100%; /* Asegurar que la sección no cause desbordamiento */
 }
 
 /* Swiper Carousel */
 .swiper-container {
-    width: 100%; /* Usar 100% en lugar de 100vw para evitar desborde */
+    width: 100%; /* Cambiar de 100vw a 100% para evitar desbordamiento */
     height: calc(100vh - 52px);
-    margin: 0; /* Eliminar márgenes */
+    margin-top: 0;
 }
 
 .swiper-slide {
@@ -354,6 +352,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     position: relative;
+    width: 100%; /* Asegurar que el footer no cause desbordamiento */
 }
 
 /* Responsive Design */
@@ -417,7 +416,7 @@ footer {
 
     /* Ajustes para el carrusel en móviles */
     .swiper-container {
-        width: 100%;
+        width: 100%; /* Mantener ancho completo sin desbordamiento */
         height: calc(100vh - 52px);
     }
 
