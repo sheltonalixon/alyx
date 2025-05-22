@@ -9,7 +9,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #fff;
-    overflow-x: hidden; /* Evitar desplazamiento horizontal */
+    overflow-x: hidden; /* Evitar barra de desplazamiento horizontal */
+    margin: 0; /* Asegurar que no haya márgenes en el body */
 }
 
 /* Particles.js */
@@ -30,6 +31,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100%; /* Asegurar que el header no cause desborde */
 }
 
 nav {
@@ -91,18 +93,20 @@ section {
 
 #home {
     padding: 0;
+    margin: 0; /* Eliminar cualquier margen */
     min-height: calc(100vh - 52px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width: 100%; /* Asegurar que la sección no cause desborde */
 }
 
 /* Swiper Carousel */
 .swiper-container {
-    width: 100vw;
+    width: 100%; /* Usar 100% en lugar de 100vw para evitar desborde */
     height: calc(100vh - 52px);
-    margin-top: 0;
+    margin: 0; /* Eliminar márgenes */
 }
 
 .swiper-slide {
@@ -118,8 +122,8 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 1; /* Asegurar que la imagen no tenga opacidad reducida */
-    filter: none; /* Eliminar cualquier filtro que afecte la nitidez */
+    opacity: 1;
+    filter: none;
 }
 
 .slide-content {
@@ -135,15 +139,15 @@ section {
     text-align: center;
     color: #fff;
     padding: 20px;
-    background: none; /* Eliminar fondo semi-transparente */
+    background: none;
 }
 
 .slide-content h2 {
     font-family: 'Orbitron', Arial, sans-serif;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Sombra más fuerte para legibilidad */
-    background: rgba(10, 10, 10, 0.7); /* Fondo oscuro solo para el texto */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    background: rgba(10, 10, 10, 0.7);
     padding: 10px 20px;
     border-radius: 5px;
 }
@@ -413,13 +417,13 @@ footer {
 
     /* Ajustes para el carrusel en móviles */
     .swiper-container {
-        width: 100vw;
+        width: 100%;
         height: calc(100vh - 52px);
     }
 
     .slide-content h2 {
         font-size: 1.8rem;
-        padding: 8px 16px; /* Ajustar padding en móviles */
+        padding: 8px 16px;
     }
 
     .slide-content p {
