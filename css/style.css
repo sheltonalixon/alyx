@@ -92,7 +92,7 @@ section {
 
 #home {
     padding: 0;
-    min-height: calc(100vh - 52px);
+    min-height: 600px; /* Coincidir con la altura del carrusel */
     width: 100vw;
     max-width: none;
     display: flex;
@@ -104,7 +104,7 @@ section {
 /* Swiper Carousel */
 .swiper-container {
     width: 100vw;
-    height: calc(100vh - 52px);
+    height: 600px; /* Alto estándar fijo */
     margin: 0;
 }
 
@@ -138,7 +138,7 @@ section {
     text-align: left;
     color: #fff;
     padding: 20px;
-    margin-left: 50px; /* Mover contenido hacia la derecha */
+    margin-left: 50px; /* Desplazar contenido hacia la derecha */
     background: none;
 }
 
@@ -414,11 +414,11 @@ footer {
     /* Ajustes para el carrusel en móviles */
     .swiper-container {
         width: 100vw;
-        height: calc(100vh - 52px);
+        height: 600px; /* Mantener altura estándar */
     }
 
     .slide-content {
-        margin-left: 20px; /* Menor desplazamiento en móviles para evitar recorte */
+        margin-left: 25px; /* Menor desplazamiento en móviles */
     }
 
     .slide-content h2 {
