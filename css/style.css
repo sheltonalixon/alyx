@@ -10,7 +10,6 @@ body {
     line-height: 1.6;
     color: #fff;
     overflow-x: hidden; /* Evitar barra de desplazamiento horizontal */
-    -webkit-overflow-scrolling: touch; /* Mejorar desplazamiento en móviles */
 }
 
 /* Particles.js */
@@ -107,7 +106,6 @@ section {
     width: 100vw;
     height: calc(100vh - 52px);
     margin: 0;
-    position: relative; /* Asegurar que el carrusel no interfiera con el desplazamiento */
 }
 
 .swiper-slide {
@@ -140,7 +138,7 @@ section {
     text-align: left;
     color: #fff;
     padding: 20px;
-    margin-left: 50px; /* Desplazamiento a la derecha */
+    margin-left: 50px; /* Aumentar desplazamiento a la derecha */
     background: none;
 }
 
@@ -420,7 +418,7 @@ footer {
     }
 
     .slide-content {
-        margin-left: 25px; /* Desplazamiento en móviles */
+        margin-left: 25px; /* Ajustar desplazamiento en móviles */
     }
 
     .slide-content h2 {
