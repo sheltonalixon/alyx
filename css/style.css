@@ -93,8 +93,8 @@ section {
 #home {
     padding: 0;
     min-height: calc(100vh - 52px);
-    width: 100vw; /* Asegurar que la sección ocupe todo el ancho */
-    max-width: none; /* Anular max-width heredado */
+    width: 100vw;
+    max-width: none;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -103,9 +103,9 @@ section {
 
 /* Swiper Carousel */
 .swiper-container {
-    width: 100vw; /* Abarcar todo el ancho de la ventana */
+    width: 100vw;
     height: calc(100vh - 52px);
-    margin: 0; /* Eliminar cualquier margen */
+    margin: 0;
 }
 
 .swiper-slide {
@@ -145,10 +145,7 @@ section {
     font-family: 'Orbitron', Arial, sans-serif;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    background: rgba(10, 10, 10, 0.7);
-    padding: 10px 20px;
-    border-radius: 5px;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.9); /* Aumentar sombra para legibilidad */
 }
 
 .slide-content p {
@@ -156,10 +153,7 @@ section {
     margin-bottom: 1.5rem;
     max-width: 80%;
     color: #e0e0e0;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    background: rgba(10, 10, 10, 0.7);
-    padding: 10px 20px;
-    border-radius: 5px;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.9); /* Aumentar sombra para legibilidad */
 }
 
 .slide-content .btn {
@@ -417,19 +411,17 @@ footer {
 
     /* Ajustes para el carrusel en móviles */
     .swiper-container {
-        width: 100vw; /* Mantener ancho completo */
+        width: 100vw;
         height: calc(100vh - 52px);
     }
 
     .slide-content h2 {
         font-size: 1.8rem;
-        padding: 8px 16px;
     }
 
     .slide-content p {
         font-size: 1rem;
         max-width: 90%;
-        padding: 8px 16px;
     }
 
     .swiper-pagination {
