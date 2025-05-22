@@ -9,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #fff;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal */
 }
 
 /* Particles.js */
@@ -89,8 +90,8 @@ section {
 }
 
 #home {
-    padding: 0; /* Eliminar todo el padding para que el carrusel ocupe todo el espacio */
-    min-height: calc(100vh - 52px); /* Restar la altura aproximada del header */
+    padding: 0;
+    min-height: calc(100vh - 52px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -99,8 +100,8 @@ section {
 
 /* Swiper Carousel */
 .swiper-container {
-    width: 100vw; /* Abarcar todo el ancho de la ventana */
-    height: calc(100vh - 52px); /* Mantener altura ajustada */
+    width: 100vw;
+    height: calc(100vh - 52px);
     margin-top: 0;
 }
 
@@ -117,6 +118,8 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 1; /* Asegurar que la imagen no tenga opacidad reducida */
+    filter: none; /* Eliminar cualquier filtro que afecte la nitidez */
 }
 
 .slide-content {
@@ -125,7 +128,6 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -133,13 +135,17 @@ section {
     text-align: center;
     color: #fff;
     padding: 20px;
+    background: none; /* Eliminar fondo semi-transparente */
 }
 
 .slide-content h2 {
     font-family: 'Orbitron', Arial, sans-serif;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Sombra más fuerte para legibilidad */
+    background: rgba(10, 10, 10, 0.7); /* Fondo oscuro solo para el texto */
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .slide-content p {
@@ -147,6 +153,10 @@ section {
     margin-bottom: 1.5rem;
     max-width: 80%;
     color: #e0e0e0;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    background: rgba(10, 10, 10, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .slide-content .btn {
@@ -166,7 +176,7 @@ section {
 
 /* Swiper Pagination */
 .swiper-pagination {
-    bottom: 20px; /* Ajustar posición para mejor visibilidad */
+    bottom: 20px;
 }
 
 .swiper-pagination-bullet {
@@ -403,20 +413,22 @@ footer {
 
     /* Ajustes para el carrusel en móviles */
     .swiper-container {
-        width: 100vw; /* Mantener ancho completo en móviles */
+        width: 100vw;
         height: calc(100vh - 52px);
     }
 
     .slide-content h2 {
         font-size: 1.8rem;
+        padding: 8px 16px; /* Ajustar padding en móviles */
     }
 
     .slide-content p {
         font-size: 1rem;
         max-width: 90%;
+        padding: 8px 16px;
     }
 
     .swiper-pagination {
-        bottom: 10px; /* Ajustar posición en móviles */
+        bottom: 10px;
     }
 }
