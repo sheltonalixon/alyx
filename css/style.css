@@ -166,7 +166,7 @@ section {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease懷, color 0.3s ease;
     font-size: 0.9rem;
 }
 
@@ -194,16 +194,16 @@ section {
 .swiper-button-next {
     width: 45px;
     height: 45px;
-    background: rgba(10, 10, 10, 0.7); /* Fondo semitransparente */
+    background: rgba(10, 10, 10, 0.7); /* Fondo más oscuro y menos opaco */
     border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 0; /* Bordes rectos */
     color: transparent; /* Oculta el color por defecto */
     transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     margin-top: 0;
     transform: translateY(-50%);
 }
 
-/* Usar íconos de Font Awesome más estilizados */
+/* Usar íconos de Font Awesome */
 .swiper-button-prev::after,
 .swiper-button-next::after {
     display: none; /* Oculta los íconos predeterminados de Swiper */
@@ -213,21 +213,20 @@ section {
 .swiper-button-next::before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    font-size: 1.8rem; /* Íconos más grandes */
+    font-size: 1.5rem;
     color: #fff;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .swiper-button-prev::before {
-    content: '\f104'; /* Flecha izquierda más estilizada */
+    content: '\f053'; /* Ícono de flecha izquierda */
 }
 
 .swiper-button-next::before {
-    content: '\f105'; /* Flecha derecha más estilizada */
+    content: '\f054'; /* Ícono de flecha derecha */
 }
 
 .swiper-button-prev:hover,
@@ -235,12 +234,6 @@ section {
     background: #3498db; /* Fondo azul al hover */
     border-color: #3498db; /* Borde azul al hover */
     transform: translateY(-50%) scale(1.1); /* Escala ligera */
-}
-
-.swiper-button-prev:hover::before,
-.swiper-button-next:hover::before {
-    color: #fff; /* Mantener íconos blancos */
-    transform: translate(-50%, -50%) rotate(10deg); /* Rotación sutil */
 }
 
 .swiper-button-prev {
@@ -257,11 +250,12 @@ section {
     .swiper-button-next {
         width: 35px;
         height: 35px;
+        border-radius: 0; /* Mantener bordes rectos en móviles */
     }
 
     .swiper-button-prev::before,
     .swiper-button-next::before {
-        font-size: 1.4rem; /* Íconos más pequeños en móviles */
+        font-size: 1.2rem;
     }
 
     .swiper-button-prev {
