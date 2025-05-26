@@ -189,30 +189,81 @@ section {
     background: #3498db;
 }
 
-/* Swiper Navigation Buttons */
+/* Botones de navegación del carrusel */
 .swiper-button-prev,
 .swiper-button-next {
-    color: #fff; /* Color de los íconos */
-    background: rgba(10, 10, 10, 0.85); /* Fondo semi-transparente */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    width: 40px; /* Ancho de los botones */
-    height: 40px; /* Alto de los botones */
-    border-radius: 50%; /* Forma circular */
-    transition: background 0.3s ease, color 0.3s ease;
+    width: 45px;
+    height: 45px;
+    background: rgba(10, 10, 10, 0.7); /* Fondo más oscuro y menos opaco */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    color: transparent; /* Oculta el color por defecto */
+    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    margin-top: 0;
+    transform: translateY(-50%);
+}
+
+/* Usar íconos de Font Awesome */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none; /* Oculta los íconos predeterminados de Swiper */
+}
+
+.swiper-button-prev::before,
+.swiper-button-next::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.swiper-button-prev::before {
+    content: '\f053'; /* Ícono de flecha izquierda */
+}
+
+.swiper-button-next::before {
+    content: '\f054'; /* Ícono de flecha derecha */
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    background: rgba(50, 50, 50, 0.85); /* Fondo al pasar el ratón */
-    color: #3498db; /* Color de ícono al pasar el ratón */
+    background: #3498db; /* Fondo azul al hover */
+    border-color: #3498db; /* Borde azul al hover */
+    transform: translateY(-50%) scale(1.1); /* Escala ligera */
 }
 
 .swiper-button-prev {
-    left: 10px; /* Ajustar posición del botón "anterior" */
+    left: 30px; /* Más separación del borde */
 }
 
 .swiper-button-next {
-    right: 10px; /* Ajustar posición del botón "siguiente" */
+    right: 30px; /* Más separación del borde */
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 35px;
+        height: 35px;
+    }
+
+    .swiper-button-prev::before,
+    .swiper-button-next::before {
+        font-size: 1.2rem;
+    }
+
+    .swiper-button-prev {
+        left: 15px;
+    }
+
+    .swiper-button-next {
+        right: 15px;
+    }
 }
 
 /* Resto del CSS sin cambios */
@@ -464,20 +515,5 @@ footer {
 
     .swiper-pagination {
         bottom: 10px;
-    }
-
-    /* Ajustes para los botones de navegación en móviles */
-    .swiper-button-prev,
-    .swiper-button-next {
-        width: 30px; /* Tamaño más pequeño en móviles */
-        height: 30px;
-    }
-
-    .swiper-button-prev {
-        left: 5px;
-    }
-
-    .swiper-button-next {
-        right: 5px;
     }
 }
