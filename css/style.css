@@ -201,7 +201,6 @@ section {
     transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     margin-top: 0;
     transform: translateY(-50%);
-    z-index: 10; /* Asegura que los botones estén sobre el contenido */
 }
 
 /* Usar íconos de Font Awesome */
@@ -238,11 +237,11 @@ section {
 }
 
 .swiper-button-prev {
-    left: 10px; /* Más cerca del borde del carrusel */
+    left: 15px; /* Reducido para estar más cerca del carrusel */
 }
 
 .swiper-button-next {
-    right: 10px; /* Más cerca del borde del carrusel */
+    right: 15px; /* Reducido para estar más cerca del carrusel */
 }
 
 /* Ajustes para móviles */
@@ -259,15 +258,11 @@ section {
     }
 
     .swiper-button-prev {
-        left: 5px; /* Más cerca en móviles */
+        left: 10px; /* Ajuste más cercano en móviles */
     }
 
     .swiper-button-next {
-        right: 5px; /* Más cerca en móviles */
-    }
-
-    .slide-content {
-        margin-left: 25px; /* Ajustar desplazamiento en móviles */
+        right: 10px; /* Ajuste más cercano en móviles */
     }
 }
 
