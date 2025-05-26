@@ -192,18 +192,19 @@ section {
 /* Botones de navegación del carrusel */
 .swiper-button-prev,
 .swiper-button-next {
-    width: 45px;
-    height: 45px;
-    background: rgba(10, 10, 10, 0.7); /* Fondo más oscuro y menos opaco */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
-    border-radius: 8px; /* Bordes redondeados */
-    color: transparent; /* Oculta el color por defecto */
-    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    background: rgba(10, 10, 10, 0.8); /* Fondo oscuro semitransparente */
+    border: 2px solid #3498db; /* Borde azul neón */
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); /* Efecto neón */
+    transform: rotate(45deg); /* Forma de rombo */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: 0;
-    transform: translateY(-50%);
+    top: 50%;
+    z-index: 10;
 }
 
-/* Usar íconos de Font Awesome */
+/* Íconos de Font Awesome */
 .swiper-button-prev::after,
 .swiper-button-next::after {
     display: none; /* Oculta los íconos predeterminados de Swiper */
@@ -213,56 +214,65 @@ section {
 .swiper-button-next::before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #fff;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(-45deg); /* Contrarresta la rotación del contenedor */
 }
 
 .swiper-button-prev::before {
-    content: '\f053'; /* Ícono de flecha izquierda */
+    content: '\f060'; /* Flecha izquierda gruesa */
 }
 
 .swiper-button-next::before {
-    content: '\f054'; /* Ícono de flecha derecha */
+    content: '\f061'; /* Flecha derecha gruesa */
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
     background: #3498db; /* Fondo azul al hover */
-    border-color: #3498db; /* Borde azul al hover */
-    transform: translateY(-50%) scale(1.1); /* Escala ligera */
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.8); /* Brillo más intenso */
+    transform: rotate(45deg) scale(1.15); /* Escala al hover */
 }
 
 .swiper-button-prev {
-    left: 30px; /* Más separación del borde */
+    left: 40px; /* Más separación del borde */
 }
 
 .swiper-button-next {
-    right: 30px; /* Más separación del borde */
+    right: 40px; /* Más separación del borde */
+}
+
+/* Animación de pulso al hover */
+@keyframes pulse {
+    0% { transform: rotate(45deg) scale(1); }
+    50% { transform: rotate(45deg) scale(1.2); }
+    100% { transform: rotate(45deg) scale(1.15); }
 }
 
 /* Ajustes para móviles */
 @media (max-width: 768px) {
     .swiper-button-prev,
     .swiper-button-next {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #3498db; /* Borde más delgado */
+        box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
     }
 
     .swiper-button-prev::before,
     .swiper-button-next::before {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .swiper-button-prev {
-        left: 15px;
+        left: 20px;
     }
 
     .swiper-button-next {
-        right: 15px;
+        right: 20px;
     }
 }
 
