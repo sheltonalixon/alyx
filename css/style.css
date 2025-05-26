@@ -189,6 +189,47 @@ section {
     background: #3498db;
 }
 
+/* Swiper Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff; /* Color de los íconos */
+    width: 40px;
+    height: 40px;
+    background: rgba(10, 10, 10, 0.85); /* Fondo oscuro con transparencia */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    border-radius: 50%; /* Botones circulares */
+    transition: background 0.3s ease, color 0.3s ease;
+    z-index: 10; /* Asegura que estén por encima del contenido */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: rgba(50, 50, 50, 0.85); /* Fondo más claro al pasar el ratón */
+    color: #3498db; /* Color azul al hacer hover */
+}
+
+/* Ajustar la posición de los botones */
+.swiper-button-prev {
+    left: 20px; /* Separación desde el borde izquierdo */
+}
+
+.swiper-button-next {
+    right: 20px; /* Separación desde el borde derecho */
+}
+
+/* Íconos de los botones (flechas) */
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 20px; /* Tamaño de las flechas */
+}
+
+/* Fallback para navegadores que no soportan backdrop-filter */
+@supports not (backdrop-filter: blur(5px)) {
+    header, footer, .btn, .swiper-button-prev, .swiper-button-next {
+        background: rgba(10, 10, 10, 0.9); /* Fallback sólido */
+    }
+}
+
 /* Resto del CSS sin cambios */
 h1 {
     font-size: 3rem;
@@ -438,5 +479,25 @@ footer {
 
     .swiper-pagination {
         bottom: 10px;
+    }
+
+    /* Ajustes para los botones de navegación en móviles */
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 30px;
+        height: 30px;
+    }
+
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        font-size: 16px; /* Flechas más pequeñas en móviles */
+    }
+
+    .swiper-button-prev {
+        left: 10px;
+    }
+
+    .swiper-button-next {
+        right: 10px;
     }
 }
