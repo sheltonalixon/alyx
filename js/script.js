@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
             clickable: true,
         },
         navigation: {
-            nextEl: '.swiper-button-next', // Selector para el botón de siguiente
-            prevEl: '.swiper-button-prev', // Selector para el botón de anterior
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         effect: 'fade', // Efecto de transición suave
         fadeEffect: {
