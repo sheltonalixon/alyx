@@ -35,6 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '.swiper-pagination',
             clickable: true,
         },
+        navigation: {
+            nextEl: '.swiper-button-next', // Selector para el botón de siguiente
+            prevEl: '.swiper-button-prev', // Selector para el botón de anterior
+        },
         effect: 'fade', // Efecto de transición suave
         fadeEffect: {
             crossFade: true,
