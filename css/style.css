@@ -215,7 +215,7 @@ section {
 }
 
 .swiper-button-next {
-    right: 20px; /* Ajustar posición desde el borde derecho */
+    right: 50px; /* Ajustado para mover el botón más hacia el centro */
 }
 
 /* Ajustar tamaño de las flechas */
@@ -264,7 +264,7 @@ p {
 .project-grid {
     display: flex;
     flex-wrap: nowrap;
-    gap: 30px;
+    gap: 30x;
     margin-top: 20px;
     justify-content: center;
 }
@@ -492,6 +492,6 @@ footer {
     }
 
     .swiper-button-next {
-        right: 10px;
+        right: 30px; /* Ajustado para mover el botón más hacia el centro en móviles */
     }
 }
