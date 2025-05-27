@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
             clickable: true,
         },
         navigation: {
-            nextEl: '.swiper-button-next', // Botón para adelantar
-            prevEl: '.swiper-button-prev', // Botón para retroceder
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         effect: 'fade', // Efecto de transición suave
         fadeEffect: {
