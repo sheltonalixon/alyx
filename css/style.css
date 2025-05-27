@@ -140,7 +140,7 @@ section {
     text-align: left;
     color: #fff;
     padding: 20px;
-    margin-left: 70px; /* Aumentar desplazamiento a la derecha */
+    margin-left: 50px; /* Aumentar desplazamiento a la derecha */
     background: none;
 }
 
@@ -215,7 +215,7 @@ section {
 }
 
 .swiper-button-next {
-    right: 50px; /* Ajustado para mover el botón más hacia el centro */
+    right: 40px; /* Mover el botón hacia la izquierda (antes era 20px) */
 }
 
 /* Ajustar tamaño de las flechas */
@@ -264,7 +264,7 @@ p {
 .project-grid {
     display: flex;
     flex-wrap: nowrap;
-    gap: 30x;
+    gap: 30px;
     margin-top: 20px;
     justify-content: center;
 }
@@ -492,6 +492,6 @@ footer {
     }
 
     .swiper-button-next {
-        right: 30px; /* Ajustado para mover el botón más hacia el centro en móviles */
+        right: 20px; /* Mover el botón hacia la izquierda (antes era 10px) */
     }
 }
