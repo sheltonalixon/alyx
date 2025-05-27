@@ -193,7 +193,7 @@ section {
 .swiper-button-prev,
 .swiper-button-next {
     color: #fff; /* Color de las flechas */
-    background: rgba(10, 10, 10, 0.85); /* Fondo semi-transparente */
+    background: rgba(10, 10, 10, 0.9); /* Aumentar opacidad para mayor visibilidad */
     backdrop-filter: blur(5px); /* Efecto de desenfoque */
     width: 40px;
     height: 40px;
@@ -202,11 +202,12 @@ section {
     justify-content: center;
     align-items: center;
     transition: background 0.3s ease, color 0.3s ease;
+    z-index: 10; /* Asegurar que los botones estén sobre otros elementos */
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    background: rgba(50, 50, 50, 0.85);
+    background: rgba(50, 50, 50, 0.9);
     color: #3498db; /* Color al pasar el ratón */
 }
 
@@ -215,7 +216,7 @@ section {
 }
 
 .swiper-button-next {
-    right: 80px; /* Mover el botón más hacia la izquierda (antes era 40px) */
+    right: 120px; /* Mover el botón mucho más hacia la izquierda (antes era 80px) */
 }
 
 /* Ajustar tamaño de las flechas */
@@ -480,6 +481,7 @@ footer {
     .swiper-button-next {
         width: 30px;
         height: 30px;
+        background: rgba(10, 10, 10, 0.9); /* Aumentar opacidad para mayor visibilidad */
     }
 
     .swiper-button-prev::after,
@@ -492,6 +494,6 @@ footer {
     }
 
     .swiper-button-next {
-        right: 40px; /* Mover el botón más hacia la izquierda (antes era 20px) */
+        right: 60px; /* Mover el botón más hacia la izquierda (antes era 40px) */
     }
 }
